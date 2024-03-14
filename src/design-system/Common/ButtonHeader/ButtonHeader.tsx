@@ -3,10 +3,13 @@ import { FC } from "react";
 type ButtonHeaderProps = {
   label: string;
   ternaryButtonHeader: boolean;
-  types: Array<{ id: number; name: string; url: string }>;
 };
 
 const ButtonHeader: FC<ButtonHeaderProps> = ({}) => {
-  return <div></div>;
+  return (
+    <button className="bg-blue-900 py-1 px-2 rounded-full text-blue-200 hover:text-blue-900 hover:bg-white border-blue-900 hover:border-blue-900">
+      Acceuil
+    </button>
+  );
 };
 export default ButtonHeader;
