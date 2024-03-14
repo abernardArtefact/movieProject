@@ -38,4 +38,5 @@ Technical Stack:
 - Recharts / Echarts librairy / Swiper
 - Tailwind
 - Node.js
+- prettier
 - Git
