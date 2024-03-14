@@ -40,3 +40,4 @@ Technical Stack:
 - Node.js
 - prettier
 - Git
+- Mobile first

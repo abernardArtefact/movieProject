@@ -1,12 +1,28 @@
 import { FC } from "react";
+import Logo from "../Logo/Logo";
+import ButtonHeader from "../ButtonHeader/ButtonHeader";
 
 type HeaderProps = {
   label: string;
   ternaryHeader: boolean;
-  types: Array<{ id: number; name: string; url: string }>;
 };
 
 const Header: FC<HeaderProps> = ({}) => {
-  return <div></div>;
+  return (
+    <div
+      id="container"
+      className="w-screen h-24 min-h-24 bg-red bg-blue-900 flex flex-inline flex justify-between p-2"
+    >
+      <div className="flex items-center">
+        {" "}
+        <Logo label={""}></Logo>
+      </div>
+
+      <div id="buttons" className="flex items-center ">
+        <ButtonHeader label={""} ternaryButtonHeader={false}></ButtonHeader>
+        <ButtonHeader label={""} ternaryButtonHeader={false}></ButtonHeader>
+      </div>
+    </div>
+  );
 };
 export default Header;
