@@ -1,4 +1,5 @@
 import { FC } from "react";
+// import
 
 type LogoProps = {
   label: string;
@@ -6,8 +7,8 @@ type LogoProps = {
 
 const Logo: FC<LogoProps> = ({}) => {
   return (
-    <div>
-      {/* <link className="w-[300px] h-[300px]" href="/logo.svg"></link> */}
+    <div className="h-12 min-w-20 w-20">
+      <img src="src/assets/logo.svg" alt=" Logo" />
     </div>
   );
 };
