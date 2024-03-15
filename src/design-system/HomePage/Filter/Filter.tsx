@@ -37,19 +37,22 @@ const Filter: FC<FilterProps> = ({}) => {
 
       <>
         {isOpen ? (
-          <ul className={` border absolute top-20 z-10`}>
+          <ul
+            className={` border absolute top-10 z-10 bg-blue-200 text- text-blue-900 font-semibold ring-1 ring-inset ring-blue-300 rounded-lg`}
+          >
             <li
-              className={`relative w-[122px] h-[80px] mx-4 pl-4 grid grid-cols-2 font-light place-content-center  box-border`}
+              className={`relative w-[100px] h-[40px] mx-4 pl-4 grid grid-cols-2 font-light place-content-center`}
             >
               yo
             </li>
+
             <li
-              className={`relative w-[122px] h-[80px] mx-4 pl-4 grid grid-cols-2 font-light place-content-center  box-border`}
+              className={`relative w-[100px] h-[40px] mx-4 pl-4 grid grid-cols-2 font-light place-content-center`}
             >
               yaya
             </li>
             <li
-              className={`relative w-[122px] h-[80px] mx-4 pl-4 grid grid-cols-2 font-light place-content-center  box-border`}
+              className={`relative w-[100px] h-[40px] mx-4 pl-4 grid grid-cols-2 font-light place-content-center`}
             >
               hfvizhv
             </li>
