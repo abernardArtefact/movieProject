@@ -13,7 +13,7 @@ const CardSmall: FC<CardSmallProps> = ({}) => {
         <div>
           <img
             className=" w-[200px] h-[240px] "
-            src="./assets/le_roi_lion_60x90cm.jpeg"
+            src="./assets/le_roi_lion.jpeg"
             alt="Lion King"
           ></img>
         </div>
