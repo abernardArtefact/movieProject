@@ -24,7 +24,7 @@ const Filter: FC<FilterProps> = ({}) => {
         >
           2015
           <svg
-            className="-mr-1 h-5 w-5 text-gray-400"
+            className="mr-1 h-5 w-5 text-gray-400"
             viewBox="0 0 20 20"
             fill="currentColor"
             aria-hidden="true"
@@ -41,21 +41,21 @@ const Filter: FC<FilterProps> = ({}) => {
       <>
         {isOpen ? (
           <ul
-            className={` border absolute top-10 z-10 bg-blue-200 text- text-blue-900 font-semibold ring-1 ring-inset ring-blue-300 rounded-lg`}
+            className={` w-[86px] border absolute top-14 z-10 bg-blue-200 text- text-blue-900 font-semibold ring-1 ring-inset ring-blue-300 rounded-lg`}
           >
             <li
-              className={`relative w-[100px] h-[40px] mx-4 pl-4 grid grid-cols-2 font-light place-content-center`}
+              className={`relative w-[100px] h-[40px] mx-6 grid grid-cols-2 font-light place-content-center`}
             >
               yo
             </li>
 
             <li
-              className={`relative w-[100px] h-[40px] mx-4 pl-4 grid grid-cols-2 font-light place-content-center`}
+              className={`relative w-[100px] h-[40px] mx-6 grid grid-cols-2 font-light place-content-center`}
             >
               yaya
             </li>
             <li
-              className={`relative w-[100px] h-[40px] mx-4 pl-4 grid grid-cols-2 font-light place-content-center`}
+              className={`relative w-[100px] h-[40px] mx-6 grid grid-cols-2 font-light place-content-center`}
             >
               hfvizhv
             </li>
