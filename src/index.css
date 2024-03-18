@@ -98,7 +98,7 @@ body {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
- 
+
 
   /* Center slide text vertically */
   display: flex;
@@ -109,7 +109,6 @@ body {
 .swiper-slide img {
   display: block;
   width: 100%;
-  height: 100%;
   object-fit: cover;
 }
 
@@ -119,7 +118,7 @@ body {
 
 
 
-
+/* 
 /* arrow */
 /* .swiper-button-next:after {} */
 
@@ -127,6 +126,6 @@ body {
 /* .swiper-slide swiper-slide-next {
 width: 230px;
 } */
-/* .swiper-slide swiper-slide-active {
+.swiper-slide swiper-slide-active {
 width: 230px;
-} */
+} 

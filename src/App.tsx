@@ -1,32 +1,20 @@
-import Button from "./design-system/Common/Button/Button";
-import Header from "./design-system/Common/Header/Header";
-import GraphHeader from "./design-system/HomePage/GraphHeader/GraphHeader";
-import Slider from "./design-system/HomePage/Slider/Slider";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+// import Movies from "./pages/Movies.tsx";
+// import Search from "./pages/Search.tsx";
+import Header from "./design-system/Common/Header/Header.tsx";
 
 function App() {
   return (
     <>
-      <div id="main-container" className="w-screen h-screen bg-blue-900">
-        <Header label={""} ternaryHeader={false}></Header>
-        <h1
-          id="title"
-          className="text-white my-12 flex justify-center lg:justify-start lg:mx-4"
-        >
-          Les 10 films les plus populaires du moment
-        </h1>
-        <Slider></Slider>
-        <Button label={""} ternaryButton={false}></Button>
-        <div
-          id="divider"
-          className=" border border-[1px] border-blue-600 bg-blue-900"
-        ></div>
-        <GraphHeader
-          label={""}
-          ternaryGraphHeader={false}
-          types={[]}
-        ></GraphHeader>
-        <div></div>
-      </div>
+      <Header label={""} ternaryHeader={false}></Header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/movies" element={<Movies />} />
+          <Route path="/search" element={<Search />} /> */}
+        </Routes>
+      </Router>
     </>
   );
 }
