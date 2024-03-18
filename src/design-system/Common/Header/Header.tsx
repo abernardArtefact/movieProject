@@ -19,8 +19,14 @@ const Header: FC<HeaderProps> = ({}) => {
       </div>
 
       <div id="buttons" className="flex items-center ">
-        <ButtonHeader label={""} ternaryButtonHeader={false}></ButtonHeader>
-        <ButtonHeader label={""} ternaryButtonHeader={false}></ButtonHeader>
+        <ButtonHeader
+          label={"Accueil"}
+          ternaryButtonHeader={false}
+        ></ButtonHeader>
+        <ButtonHeader
+          label={"Recherche"}
+          ternaryButtonHeader={false}
+        ></ButtonHeader>
       </div>
     </div>
   );
