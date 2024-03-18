@@ -9,10 +9,10 @@ type CardSmallProps = {
 const CardSmall: FC<CardSmallProps> = ({}) => {
   return (
     <div>
-      <div className="max-w-sm rounded overflow-hidden shadow-lg">
+      <div className=" max-w-sm rounded overflow-hidden shadow-lg  w-[260px] min-w-[260px] h-[380px] min-h-[380px] bg-blue-200">
         <div>
           <img
-            className=" w-[200px] h-[240px] "
+            className=" w-[240px] h-[240px] min-w-[200px] "
             src="./assets/le_roi_lion.jpeg"
             alt="Lion King"
           ></img>
@@ -27,7 +27,7 @@ const CardSmall: FC<CardSmallProps> = ({}) => {
             </p>
           </div>
           <div className="px-6 pt-4 pb-2 flex flex-row-reverse ">
-            <span className=" bg-blue-200 rounded-full px-3 py-1 text-sm font-semibold text-red-800 mr-2 mb-2">
+            <span className=" bg-blue-200 rounded-full py-1 text-sm font-semibold text-red-800 mr-2 mb-2">
               +120 KS
             </span>
           </div>

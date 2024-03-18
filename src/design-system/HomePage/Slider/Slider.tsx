@@ -3,14 +3,13 @@ import { FC } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
 // import "./styles.css";
 
-// import required modules
 import { Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import CardSmall from "../../Common/CardSmall/CardSmall";
 
 type SliderProps = {
@@ -24,13 +23,28 @@ const Slider: FC<SliderProps> = ({}) => {
     <div>
       <>
         <Swiper
-          slidesPerView={3}
+          navigation={true}
+          modules={[Navigation, Pagination]}
+          slidesPerView={1}
           spaceBetween={30}
           pagination={{
             clickable: true,
           }}
-          modules={[Pagination]}
-          className="mySwiper"
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 0,
+            },
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 10,
+            },
+          }}
+          className="myyySwiper flex justify-center bg-blue-900 w-full"
         >
           <SwiperSlide>
             <CardSmall
@@ -53,20 +67,6 @@ const Slider: FC<SliderProps> = ({}) => {
               types={[]}
             ></CardSmall>
           </SwiperSlide>{" "}
-          <SwiperSlide>
-            <CardSmall
-              label={""}
-              ternaryCardSmall={false}
-              types={[]}
-            ></CardSmall>
-          </SwiperSlide>{" "}
-          <SwiperSlide>
-            <CardSmall
-              label={""}
-              ternaryCardSmall={false}
-              types={[]}
-            ></CardSmall>
-          </SwiperSlide>
         </Swiper>
       </>
     </div>

@@ -49,6 +49,7 @@ Elle utilisera la moviedb API : [https://developers.themoviedb.org/3/getting-sta
 ## Stack technique demandée
 
 - React
+- Recharts / Echarts librairy
 - Redux / typeScript /tailwind /Vite (au lieu de WebPack)
 - Less / css
 - Node.js

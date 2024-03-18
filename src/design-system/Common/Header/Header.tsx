@@ -11,7 +11,7 @@ const Header: FC<HeaderProps> = ({}) => {
   return (
     <div
       id="container"
-      className="w-screen h-24 min-h-24 bg-red bg-blue-900 flex flex-inline flex justify-between p-2"
+      className="w-screen h-24 min-h-24 bg-red bg-blue-900 flex flex-inline flex justify-between p-4"
     >
       <div className="flex items-center">
         {" "}

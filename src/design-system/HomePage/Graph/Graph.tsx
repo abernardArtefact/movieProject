@@ -1,4 +1,5 @@
 import { FC } from "react";
+import * as echarts from "echarts";
 
 type GraphProps = {
   label: string;

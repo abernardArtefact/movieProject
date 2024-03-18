@@ -11,7 +11,10 @@ const Filter: FC<FilterProps> = ({}) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleIsOpen = () => setIsOpen(!isOpen);
   return (
-    <div onClick={handleIsOpen} className="relative inline-block text-left">
+    <div
+      onClick={handleIsOpen}
+      className="relative inline-block text-left px-3 py-3"
+    >
       <div>
         <button
           type="button"
