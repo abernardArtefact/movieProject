@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 type CardSmallProps = {
   label: string;
@@ -17,7 +18,7 @@ const CardSmall: FC<CardSmallProps> = ({}) => {
             alt="Lion King"
           ></img>
         </div>
-        <div className="flex items-center justify-between pt-56">
+        <div className="flex items-center justify-between">
           <div className="px-6 py-4 flex flex-col ">
             <div id="title" className="font-bold text-xl mb-2">
               Lion King{" "}
