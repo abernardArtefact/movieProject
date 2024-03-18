@@ -6,6 +6,7 @@ import Slider from "../design-system/HomePage/Slider/Slider";
 const HomePage = () => {
   return (
     <div id="main-container" className="w-screen h-screen bg-blue-900">
+      {/* <Link to="/">Home</Link> */}
       <h1
         id="title"
         className="text-white mb-12 flex justify-center lg:justify-start lg:mx-4  bg-blue-900"
@@ -23,10 +24,11 @@ const HomePage = () => {
         ternaryGraphHeader={false}
         types={[]}
       ></GraphHeader>
-
-      <li>
-        <Link to="/search">Search</Link>
-      </li>
+      <ul>
+        <li>
+          <Link to="/search">Search</Link>
+        </li>
+      </ul>
     </div>
   );
 };
