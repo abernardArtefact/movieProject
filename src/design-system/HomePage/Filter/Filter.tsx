@@ -2,12 +2,13 @@ import { FC } from "react";
 import { useState } from "react";
 
 type FilterProps = {
+  label: string;
   // date: string;
   // ternaryFilter: boolean;
   // types: Array<{ id: number; name: string; url: string }>;
 };
 
-const Filter: FC<FilterProps> = ({}) => {
+const Filter: FC<FilterProps> = ({ label }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleIsOpen = () => setIsOpen(!isOpen);
   return (
@@ -22,7 +23,7 @@ const Filter: FC<FilterProps> = ({}) => {
           id="menu-button"
           aria-expanded={isOpen}
         >
-          2015
+          {label}
           <svg
             className="mr-1 h-5 w-5 text-gray-400"
             viewBox="0 0 20 20"
@@ -41,7 +42,7 @@ const Filter: FC<FilterProps> = ({}) => {
       <>
         {isOpen ? (
           <ul
-            className={` w-[86px] border absolute top-14 z-10 bg-blue-200 text- text-blue-900 font-semibold ring-1 ring-inset ring-blue-300 rounded-lg`}
+            className={` w-[86px] border absolute top-14 z-10 bg-blue-200  text-blue-900 font-semibold ring-1 ring-inset ring-blue-300 rounded-lg`}
           >
             <li
               className={`relative w-[100px] h-[40px] mx-6 grid grid-cols-2 font-light place-content-center`}

@@ -120,7 +120,10 @@ body {
 
 /* 
 /* arrow */
-/* .swiper-button-next:after {} */
+.swiper-button-next:after {
+  bottom: 4em;
+  color:#eee white;
+}
 
 /* \pour aggrandir l'espace de la card */
 /* .swiper-slide swiper-slide-next {
@@ -128,4 +131,14 @@ width: 230px;
 } */
 .swiper-slide swiper-slide-active {
 width: 230px;
-} 
+}
+
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: -2px;
+
+}
+
+/* 
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+color: blue;
+} */

@@ -33,6 +33,12 @@ const CardSmall: FC<CardSmallProps> = ({}) => {
             </span>
           </div>
         </div>
+        <Link
+          to="/search"
+          className="text-blue-900 bg-blue-400 ring-1 ring-inset ring-blue-900 rounded-full px-4 py-1 border border-blue-300 hover:text-blue-200 hover:bg-blue-900"
+        >
+          Voir
+        </Link>
       </div>
     </div>
   );

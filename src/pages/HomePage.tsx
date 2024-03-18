@@ -9,7 +9,7 @@ const HomePage = () => {
       {/* <Link to="/">Home</Link> */}
       <h1
         id="title"
-        className="text-white mb-12 flex justify-center lg:justify-start lg:mx-4  bg-blue-900"
+        className="text-white mb-12 flex justify-center lg:justify-start lg:mx-4  bg-blue-900 font-bold"
       >
         Les 10 films les plus populaires du moment
       </h1>
@@ -24,7 +24,7 @@ const HomePage = () => {
         ternaryGraphHeader={false}
         types={[]}
       ></GraphHeader>
-      <ul>
+      <ul className="bg-blue-900">
         <li>
           <Link to="/search">Search</Link>
         </li>
