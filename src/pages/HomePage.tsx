@@ -24,12 +24,11 @@ const HomePage = () => {
         ternaryGraphHeader={false}
         types={[]}
       ></GraphHeader>
-      <li>
-        <Link to="/movies">Movies</Link>
-      </li>
-      <li>
-        <Link to="/search">Search</Link>
-      </li>
+      <ul>
+        <li>
+          <Link to="/search">Search</Link>
+        </li>
+      </ul>
     </div>
   );
 };
