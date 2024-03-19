@@ -5,7 +5,7 @@ import Slider from "../design-system/HomePage/Slider/Slider";
 
 const HomePage = () => {
   return (
-    <div id="main-container" className="w-screen h-full bg-blue-900">
+    <div id="main-container" className="w-screen h-full bg-blue-900 ">
       {/* <Link to="/">Home</Link> */}
       <h1
         id="title"

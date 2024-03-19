@@ -9,21 +9,28 @@ type CardBigProps = {
 const CardBig: FC<CardBigProps> = ({}) => {
   return (
     <div>
-      <div className="max-w-sm w-full lg:max-w-full lg:flex">
-        <div className="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"></div>
-        <div className="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-          <div className="mb-8">
-            <p className="text-sm text-gray-600 flex items-center"></p>
-            <div className="text-gray-900 font-bold text-xl mb-2">
+      <div className="max-w-sm w-full lg:max-w-full lg:flex bg-blue-900 min-h-[600px] ">
+        <div className=" bg-blue-900 p-4 flex flex-col justify-between leading-normal items-center">
+          <img
+            className=" lg:w-64 lg:h-64 lg:mr-2 fill-current w-32 h-32 flex items-center "
+            src="src/assets/le_roi_lion.jpeg"
+            alt="Lion King"
+          ></img>
+
+          <div className="lg:flex lg:flex-col lg:gap-2">
+            <div className="text-white font-bold text-xl mb-2 flex justify-center pt-8 lg:pt-0">
               Lion King
             </div>
-            <p className="text-gray-700 text-base"></p>
-          </div>
-          <div className="flex items-center">
-            <div className="text-sm">
-              <p className="text-gray-900 leading-none"></p>
-              <p className="text-gray-600"></p>
-            </div>
+            <h2 className="text-blue-100 text-lg font-bold pt-4 lg:pt-0">
+              Synopsis
+            </h2>
+            <p className="text-blue-100 text-base flex pt-4 lg:pt-0">
+              Le Roi Lion : tout savoir sur le plus célèbre des lions L'histoire
+              met en scène le roi Mufasa, qui règne avec bienveillance sur la
+              savane. Il est accompagné de sa femme, la reine Sarabi, et de leur
+              fils adorable, Simba. Tout bascule lorsque le frère de Mufasa, le
+              lion Scar, envahi de jalousie, souhaite s'emparer du trône.
+            </p>
           </div>
         </div>
       </div>
