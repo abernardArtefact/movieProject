@@ -10,11 +10,11 @@ type CardSmallProps = {
 const CardSmall: FC<CardSmallProps> = ({}) => {
   return (
     <div>
-      <div className=" max-w-sm rounded overflow-hidden shadow-lg w-[260px] min-w-[260px] h-[380px] min-h-[380px] bg-blue-200">
+      <div className=" max-w-sm rounded-lg overflow-hidden shadow-lg w-[260px] min-w-[284px] h-[380px] min-h-[380px] bg-blue-200 mb-4">
         <div>
           <img
-            className=" w-[240px] h-[240px] min-w-[200px] "
-            src="./assets/le_roi_lion.jpeg"
+            className=" h-[240px] min-w-[240px] w-full  object-cover"
+            src="src/assets/le_roi_lion.jpeg"
             alt="Lion King"
           ></img>
         </div>
@@ -35,9 +35,9 @@ const CardSmall: FC<CardSmallProps> = ({}) => {
         </div>
         <Link
           to="/search"
-          className="text-blue-900 bg-blue-400 ring-1 ring-inset ring-blue-900 rounded-full px-4 py-1 border border-blue-300 hover:text-blue-200 hover:bg-blue-900"
+          className="text-blue-900 bg-blue-400 ring-1 ring-inset ring-blue-900 rounded-full px-4 py-0 lg:py-1 border border-blue-300 hover:text-blue-200 hover:bg-blue-900 flex justify-center mx-20 font-medium text-base"
         >
-          Voir
+          Détails
         </Link>
       </div>
     </div>

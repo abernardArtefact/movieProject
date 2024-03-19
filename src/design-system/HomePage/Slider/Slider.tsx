@@ -55,6 +55,34 @@ const Slider: FC<SliderProps> = ({}) => {
           </SwiperSlide>
           <SwiperSlide>
             <CardSmall
+              label={"lion"}
+              ternaryCardSmall={false}
+              types={[]}
+            ></CardSmall>
+          </SwiperSlide>
+          <SwiperSlide>
+            <CardSmall
+              label={"lion"}
+              ternaryCardSmall={false}
+              types={[]}
+            ></CardSmall>
+          </SwiperSlide>
+          <SwiperSlide>
+            <CardSmall
+              label={"lion"}
+              ternaryCardSmall={false}
+              types={[]}
+            ></CardSmall>
+          </SwiperSlide>
+          <SwiperSlide>
+            <CardSmall
+              label={"lion"}
+              ternaryCardSmall={false}
+              types={[]}
+            ></CardSmall>
+          </SwiperSlide>
+          <SwiperSlide>
+            <CardSmall
               label={""}
               ternaryCardSmall={false}
               types={[]}

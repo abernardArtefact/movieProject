@@ -31,7 +31,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
         value={input}
         onChange={(e) => handleChange(e.target.value)}
       />
-      <button type="submit" className="absolute right-28 top-0 mt-5 mr-4">
+      <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
         <svg
           className="text-blue-200 h-4 w-4 fill-current"
           xmlns="http://www.w3.org/2000/svg"

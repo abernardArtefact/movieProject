@@ -14,12 +14,12 @@ const Filter: FC<FilterProps> = ({ label }) => {
   return (
     <div
       onClick={handleIsOpen}
-      className="relative inline-block text-left px-3 py-3"
+      className="relative inline-block text-left px-3 py-3 "
     >
       <div>
         <button
           type="button"
-          className="inline-flex w-full justify-center gap-x-1.5 rounded-lg bg-blue-900 px-3 py-2 text-sm font-semibold text-blue-200 shadow-sm ring-1 ring-inset ring-blue-300 hover:bg-blue-200 hover:text-blue-900"
+          className=" inline-flex w-full justify-center gap-x-1.5 rounded-lg bg-blue-900 px-3 py-2 text-sm font-semibold text-blue-200 shadow-sm ring-1 ring-inset ring-blue-300 hover:bg-blue-200 hover:text-blue-900"
           id="menu-button"
           aria-expanded={isOpen}
         >

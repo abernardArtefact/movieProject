@@ -134,9 +134,15 @@ width: 230px;
 }
 
 .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
-  bottom: -2px;
-
+  bottom: -20px;
+  padding-bottom: 14px;
+ 
 }
+
+.swiper-pagination-bullet {
+  background: white;
+}
+
 
 /* 
 .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
