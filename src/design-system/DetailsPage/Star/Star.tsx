@@ -1,12 +1,23 @@
 import { FC } from "react";
 
 type StarProps = {
-  label: string;
-  ternaryStar: boolean;
-  types: Array<{ id: number; name: string; url: string }>;
+  selected: boolean;
+  onSelect: () => void;
+  // label: string;
+  // ternaryStar: boolean;
+  // types: Array<{ id: number; name: string; url: string }>;
 };
 
-const Star: FC<StarProps> = ({}) => {
-  return <div></div>;
+const Star: FC<StarProps> = ({ selected, onSelect }) => {
+  return (
+    <div>
+      <span
+        onClick={onSelect}
+        style={{ cursor: "pointer", color: selected ? "orange" : "grey" }}
+      >
+        ★
+      </span>
+    </div>
+  );
 };
 export default Star;

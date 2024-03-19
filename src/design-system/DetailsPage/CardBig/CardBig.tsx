@@ -1,4 +1,5 @@
 import { FC } from "react";
+import StarRating from "../StarRating/StarRating";
 
 type CardBigProps = {
   label: string;
@@ -63,6 +64,10 @@ const CardBig: FC<CardBigProps> = ({}) => {
           Simba. Tout bascule lorsque le frère de Mufasa, le lion Scar, envahi
           de jalousie, souhaite s'emparer du trône.
         </p>
+      </div>
+      <div>
+        <h2>Notez notre service</h2>
+        <StarRating totalStars={5} />
       </div>
     </div>
   );

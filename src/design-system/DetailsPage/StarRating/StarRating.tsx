@@ -3,16 +3,26 @@ import { useState } from "react";
 import Star from "../../../design-system/DetailsPage/Star/Star";
 
 type StarRatingProps = {
-  label: string;
-  ternaryStarRating: boolean;
-  types: Array<{ id: number; name: string; url: string }>;
+  totalStars?: number;
+  //   label: string;
+  //   ternaryStarRating: boolean;
+  //   types: Array<{ id: number; name: string; url: string }>;
 };
 
-const StarRating: FC<StarRatingProps> = ({}) => {
-  const [] = useState();
+const StarRating: FC<StarRatingProps> = ({ totalStars }) => {
+  const [selectedStars, setSelectedStars] = useState(0);
   return (
     <div>
-      <Star label={""} ternaryStar={false} types={[]}></Star>
+      {[...Array(totalStars)].map((_, index) => (
+        <Star
+          key={index}
+          selected={index < selectedStars}
+          onSelect={() => setSelectedStars(index + 1)}
+        />
+      ))}
+      <p>
+        {selectedStars} sur {totalStars} étoiles
+      </p>
     </div>
   );
 };
