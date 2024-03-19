@@ -14,7 +14,7 @@ const HomePage = () => {
         Les 10 films les plus populaires du moment
       </h1>
       <Slider></Slider>
-      <Button label={""} ternaryButton={false}></Button>
+      <Button label={"Voir tous les films"} ternaryButton={false}></Button>
       <div
         id="divider"
         className=" border border-[1px] border-blue-600 bg-blue-900"

@@ -9,7 +9,7 @@ type GraphHeaderProps = {
 
 const GraphHeader: FC<GraphHeaderProps> = ({}) => {
   return (
-    <div className="bg-blue-900 text-white py-6 lg:flex justify-between h-full ">
+    <div className="bg-blue-900 text-white py-6 lg:flex justify-between h-full lg:px-16">
       <h1 className="px-3 py-3 flex justify-center lg:justify-start lg:text-lg font-semibold">
         Statistique par année
       </h1>

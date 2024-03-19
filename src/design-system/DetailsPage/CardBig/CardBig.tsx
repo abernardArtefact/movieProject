@@ -10,9 +10,9 @@ const CardBig: FC<CardBigProps> = ({}) => {
   return (
     <div>
       <div className="max-w-sm w-full lg:max-w-full lg:flex bg-blue-900 min-h-[600px] ">
-        <div className=" bg-blue-900 p-4 flex flex-col justify-between leading-normal items-center">
+        <div className=" bg-blue-900 p-4 flex flex-col leading-normal items-center">
           <img
-            className=" lg:w-64 lg:h-64 lg:mr-2 fill-current w-32 h-32 flex items-center "
+            className=" lg:w-64 lg:h-64 lg:mr-2 fill-current w-32 h-32 flex items-center lg:mb-8"
             src="src/assets/le_roi_lion.jpeg"
             alt="Lion King"
           ></img>
