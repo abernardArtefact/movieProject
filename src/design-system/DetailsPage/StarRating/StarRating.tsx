@@ -12,7 +12,7 @@ type StarRatingProps = {
 const StarRating: FC<StarRatingProps> = ({ totalStars }) => {
   const [selectedStars, setSelectedStars] = useState(0);
   return (
-    <div>
+    <div className="flex justify-center">
       {[...Array(totalStars)].map((_, index) => (
         <Star
           key={index}
@@ -20,9 +20,6 @@ const StarRating: FC<StarRatingProps> = ({ totalStars }) => {
           onSelect={() => setSelectedStars(index + 1)}
         />
       ))}
-      <p>
-        {selectedStars} sur {totalStars} étoiles
-      </p>
     </div>
   );
 };

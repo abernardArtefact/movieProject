@@ -65,9 +65,22 @@ const CardBig: FC<CardBigProps> = ({}) => {
           de jalousie, souhaite s'emparer du trône.
         </p>
       </div>
+      <div id="ratings" className="flex flex-row"></div>
       <div>
-        <h2>Notez notre service</h2>
-        <StarRating totalStars={5} />
+        <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl pb-2">
+          Communanuté
+        </h3>
+        <div>
+          <StarRating totalStars={5} />
+        </div>
+      </div>
+      <div>
+        <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl py-2">
+          Ma note
+        </h3>
+        <div className="pb-8">
+          <StarRating totalStars={5} />
+        </div>
       </div>
     </div>
   );

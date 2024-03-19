@@ -13,7 +13,7 @@ const Star: FC<StarProps> = ({ selected, onSelect }) => {
     <div>
       <span
         onClick={onSelect}
-        style={{ cursor: "pointer", color: selected ? "orange" : "grey" }}
+        style={{ cursor: "pointer", color: selected ? "orange" : "white" }}
       >
         ★
       </span>
