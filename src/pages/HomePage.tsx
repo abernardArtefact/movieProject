@@ -9,11 +9,13 @@ const HomePage = () => {
       {/* <Link to="/">Home</Link> */}
       <h1
         id="title"
-        className="text-white lg:text-xl mb-12 flex justify-center  lg:mx-4  bg-blue-900 font-bold "
+        className="text-white text-xl mb-12 flex  lg:w-full pl-20 w-80 lg:mx-4  bg-blue-900 font-bold "
       >
         Les 10 films les plus populaires du moment
       </h1>
-      <Slider></Slider>
+      <div className="">
+        <Slider></Slider>
+      </div>
       <Button label={"Voir tous les films"} ternaryButton={false}></Button>
       <div
         id="divider"

@@ -136,6 +136,8 @@ width: 230px;
 .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
   bottom: -20px;
   padding-bottom: 14px;
+  padding-top: 14px;
+  z-index: 10 !important;
  
 }
 
