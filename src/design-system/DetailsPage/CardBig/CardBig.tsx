@@ -9,7 +9,7 @@ type CardBigProps = {
 const CardBig: FC<CardBigProps> = ({}) => {
   return (
     <div>
-      <div className="max-w-sm w-full lg:max-w-full lg:flex bg-blue-900 min-h-[600px] ">
+      <div className="max-w-sm w-full lg:max-w-full lg:flex lg:flex-col bg-blue-900 min-h-[600px] ">
         <div
           id="technical-description"
           className=" bg-blue-900 p-4 flex flex-col lg:flex-row leading-normal items-center lg:items-start "
@@ -20,34 +20,43 @@ const CardBig: FC<CardBigProps> = ({}) => {
             alt="Lion King"
           ></img>
 
-          <div className="lg:flex lg:flex-col lg:gap-2">
+          <div className="lg:flex lg:flex-col lg:gap-2 lg:pl-8">
             <div
               id="title"
               className="flex items-center justify-center py-4 lg:py-8"
             >
-              <h1 className="text-white font-bold text-xl  flex justify-center ">
+              <h1 className="text-white font-bold text-3xl  flex justify-center ">
                 Lion King
               </h1>
               <p className="text-white pl-2">(2019)</p>
             </div>
-            <div className="flex flex-col">
-              <h3 className="text-blue-200 flex justify-center items-center">
+            <div className="flex flex-col items-start ">
+              <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl">
                 Budget
-                <span className="text-base text-blue-200 pl-4">160 M$</span>
+                <span className="text-base lg:text-xl  text-blue-200 pl-4">
+                  160 M$
+                </span>
               </h3>
-              <h3 className="text-blue-200 flex justify-center items-center">
+              <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl">
                 Revenu
-                <span className="text-base text-blue-200 pl-4">868 M$</span>
+                <span className="text-base lg:text-xl  text-blue-200 pl-4">
+                  868 M$
+                </span>
               </h3>
-              <h3 className="text-blue-200 flex justify-center items-center">
+              <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl">
                 Recettes
-                <span className="text-base text-blue-200 pl-4"> 708 M$</span>
+                <span className="text-base lg:text-xl text-blue-200 pl-4">
+                  {" "}
+                  708 M$
+                </span>
               </h3>
             </div>
           </div>
         </div>
-        <h2 className="text-blue-100 text-lg font-bold pt-8 ">Synopsis</h2>
-        <p className="text-blue-100 text-base flex pt-4 lg:pt-2">
+        <h2 className="text-blue-100 text-lg lg:text-xl font-bold pt-8 px-4 h-16">
+          Synopsis
+        </h2>
+        <p className="text-blue-100 text-base lg:text-lg flex pt-4 lg:pt-2 px-4">
           Le Roi Lion : tout savoir sur le plus célèbre des lions L'histoire met
           en scène le roi Mufasa, qui règne avec bienveillance sur la savane. Il
           est accompagné de sa femme, la reine Sarabi, et de leur fils adorable,
