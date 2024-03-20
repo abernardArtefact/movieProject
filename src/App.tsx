@@ -1,12 +1,12 @@
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import HomePage from "./pages/HomePage";
-// import Movies from "./pages/Movies.tsx";
+// import Movie from "./pages/Movie.tsx";
 // import Search from "./pages/Search.tsx";
 // import Header from "./design-system/Common/Header/Header.tsx";
 
 import { useRoutes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import Movies from "./pages/Movies";
+import Movie from "./pages/Movie";
 import Search from "./pages/Search";
 import Layout from "./layout";
 
@@ -22,11 +22,11 @@ import Layout from "./layout";
 //     ),
 //   },
 //   {
-//     path: "/Movies",
+//     path: "/Movie",
 //     element: (
 //       <div>
-//         <Link to="/Movies">
-//           <Movies></Movies>
+//         <Link to="/Movie">
+//           <Movie></Movie>
 //         </Link>
 //       </div>
 //     ),
@@ -56,8 +56,9 @@ const App: React.FC = () => {
       element: <Layout />,
       children: [
         { path: "/", element: <HomePage /> },
-        { path: "/Movies", element: <Movies /> },
+        { path: "/Movie", element: <Movie /> },
         { path: "/Search", element: <Search /> },
+        { path: "/Movie/:id", element: <Movie /> },
       ],
     },
   ]);

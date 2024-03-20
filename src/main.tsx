@@ -2,7 +2,7 @@
 // import App from "./App.tsx";
 // import { BrowserRouter as Router, Routes } from "react-router-dom";
 // import HomePage from "./pages/HomePage";
-// import Movies from "./pages/Movies.tsx";
+// import Movie from "./pages/Movie.tsx";
 // import Search from "./pages/Search.tsx";
 // import Header from "./design-system/Common/Header/Header.tsx";
 // import * as React from "react";
@@ -21,7 +21,7 @@
 //     <Router>
 //       <Routes>
 //         <Route path="/" element={<HomePage />} />
-//         <Route path="/Movies" element={<Movies />} />
+//         <Route path="/Movie" element={<Movie />} />
 //         <Route path="/Search" element={<Search />} />
 //       </Routes>
 //     </Router>
@@ -39,7 +39,7 @@
 //   createBrowserRouter,
 // } from "react-router-dom";
 // import HomePage from "./pages/HomePage";
-// import Movies from "./pages/Movies";
+// import Movie from "./pages/Movie";
 // import Search from "./pages/Search";
 // import App from "./App";
 
@@ -55,11 +55,11 @@
 //     ),
 //   },
 //   {
-//     path: "/Movies",
+//     path: "/Movie",
 //     element: (
 //       <div>
-//         <Link to="/Movies">
-//           <Movies></Movies>
+//         <Link to="/Movie">
+//           <Movie></Movie>
 //         </Link>
 //       </div>
 //     ),
