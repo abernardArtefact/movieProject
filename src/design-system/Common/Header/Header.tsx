@@ -11,11 +11,6 @@ type HeaderProps = {
 };
 
 const Header: FC<HeaderProps> = ({}) => {
-  // let navigate = useNavigate();
-  // const handleGoHome = () => {
-  //   navigate("/");
-  // };
-
   return (
     <div
       id="container"
@@ -26,7 +21,7 @@ const Header: FC<HeaderProps> = ({}) => {
         <Logo label={""}></Logo>
       </div>
 
-      <div id="buttons" className="flex items-center ">
+      <div id="buttons" className="flex items-center pb-2 lg:pb-0">
         <ButtonHeader
           label={"Accueil"}
           ternaryButtonHeader={false}

@@ -98,9 +98,6 @@ body {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-
-
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,19 +113,11 @@ body {
   padding: 0px;
 }
 
-
-
-/* 
-/* arrow */
 .swiper-button-next:after {
   bottom: 4em;
   color:#eee white;
 }
 
-/* \pour aggrandir l'espace de la card */
-/* .swiper-slide swiper-slide-next {
-width: 230px;
-} */
 .swiper-slide swiper-slide-active {
 width: 230px;
 }
@@ -138,15 +127,8 @@ width: 230px;
   padding-bottom: 14px;
   padding-top: 14px;
   z-index: 10 !important;
- 
 }
 
 .swiper-pagination-bullet {
   background: white;
 }
-
-
-/* 
-.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-color: blue;
-} */

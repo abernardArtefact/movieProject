@@ -1,13 +1,7 @@
 import { FC } from "react";
-// import React, { useRef, useState } from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/pagination";
-
-// import "./styles.css";
-
 import { Pagination } from "swiper/modules";
 import { Navigation } from "swiper/modules";
 import CardSmall from "../../Common/CardSmall/CardSmall";

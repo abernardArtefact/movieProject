@@ -4,16 +4,10 @@
 // import Search from "./pages/Search.tsx";
 // import Header from "./design-system/Common/Header/Header.tsx";
 
-import {
-  Link,
-  RouterProvider,
-  createBrowserRouter,
-  useRoutes,
-} from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Movies from "./pages/Movies";
 import Search from "./pages/Search";
-import Header from "./design-system/Common/Header/Header";
 import Layout from "./layout";
 
 // const router = createBrowserRouter([

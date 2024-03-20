@@ -5,8 +5,6 @@ type ButtonHeaderProps = {
   label: string;
   ternaryButtonHeader: boolean;
   to: any;
-
-  // onClick: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const ButtonHeader: FC<ButtonHeaderProps> = ({ label, to }) => {

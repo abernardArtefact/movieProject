@@ -1,6 +1,5 @@
 // import ReactDOM from "react-dom/client";
 // import App from "./App.tsx";
-import "./index.css";
 // import { BrowserRouter as Router, Routes } from "react-router-dom";
 // import HomePage from "./pages/HomePage";
 // import Movies from "./pages/Movies.tsx";
@@ -91,8 +90,8 @@ import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-
 import App from "./App";
+import "./index.css";
 
 const element = (
   <BrowserRouter>
