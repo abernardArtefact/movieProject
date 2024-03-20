@@ -30,12 +30,12 @@ const Header: FC<HeaderProps> = ({}) => {
         <ButtonHeader
           label={"Accueil"}
           ternaryButtonHeader={false}
-          link={undefined} // link={<Link to="/"></Link>}
+          to={"/"} //
         ></ButtonHeader>
         <ButtonHeader
           label={"Recherche"}
           ternaryButtonHeader={false}
-          link={undefined} // link={<Link to="/search"></Link>}
+          to={"/search"}
         ></ButtonHeader>
       </div>
     </div>

@@ -12,15 +12,33 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
   const options = { method: "GET", headers: { accept: "application/json" } };
 
   const fetchData = (_value: SetStateAction<string>) => {
-    fetch("https://api.themoviedb.org/3/genre/movie/list?language=en", options)
+    fetch(
+      "https://api.themoviedb.org/3/genre/movie/list?language=en/param=${param}",
+      options
+    )
       .then((response) => response.json())
       .then((response) => console.log(response))
       .catch((err) => console.error(err));
   };
-  const handleChange = (value: SetStateAction<string>) => {
-    setInput(value);
-    fetchData(value);
-  };
+  // const options = {
+  //   method: "GET",
+  //   headers: {
+  //     accept: "application/json",
+  //     Authorization: "Bearer e2eb987096c32d058f2dc823b55d9d5a",
+  //   },
+  // };
+
+  // fetch(
+  //   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+  //   options
+  // )
+  //   .then((response) => response.json())
+  //   .then((response) => console.log(response))
+  //   .catch((err) => console.error(err));
+  // const handleChange = (value: SetStateAction<string>) => {
+  //   setInput(value);
+  //   fetchData(value);
+  // };
   return (
     <div className=" text-blue-200  pt-2 relative mx-auto text-cyan-200">
       <input
