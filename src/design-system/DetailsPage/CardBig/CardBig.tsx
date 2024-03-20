@@ -10,7 +10,7 @@ type CardBigProps = {
 const CardBig: FC<CardBigProps> = ({}) => {
   return (
     <div>
-      <div className="max-w-sm w-full lg:max-w-full lg:flex lg:flex-col bg-blue-900 min-h-[600px] ">
+      <div className="max-w-sm w-full lg:max-w-full lg:flex lg:flex-col bg-blue-900 min-h-[600px] h-screen">
         <div
           id="technical-description"
           className=" bg-blue-900 p-4 flex flex-col lg:flex-row leading-normal items-center lg:items-start "
@@ -53,6 +53,24 @@ const CardBig: FC<CardBigProps> = ({}) => {
               </h3>
             </div>
           </div>
+          <div id="ratings" className="lg:flex flex-col hidden pt-12 pl-48">
+            <div>
+              <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl pb-2">
+                Communanuté
+              </h3>
+              <div>
+                <StarRating totalStars={5} />
+              </div>
+            </div>
+            <div>
+              <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl py-2">
+                Ma note
+              </h3>
+              <div className="pb-8">
+                <StarRating totalStars={5} />
+              </div>
+            </div>
+          </div>
         </div>
         <h2 className="text-blue-100 text-lg lg:text-xl font-bold pt-8 px-4 h-16">
           Synopsis
@@ -65,21 +83,22 @@ const CardBig: FC<CardBigProps> = ({}) => {
           de jalousie, souhaite s'emparer du trône.
         </p>
       </div>
-      <div id="ratings" className="flex flex-row"></div>
-      <div>
-        <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl pb-2">
-          Communanuté
-        </h3>
+      <div id="ratings" className="lg:hidden">
         <div>
-          <StarRating totalStars={5} />
+          <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl pb-2">
+            Communanuté
+          </h3>
+          <div>
+            <StarRating totalStars={5} />
+          </div>
         </div>
-      </div>
-      <div>
-        <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl py-2">
-          Ma note
-        </h3>
-        <div className="pb-8">
-          <StarRating totalStars={5} />
+        <div>
+          <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl py-2">
+            Ma note
+          </h3>
+          <div className="pb-8">
+            <StarRating totalStars={5} />
+          </div>
         </div>
       </div>
     </div>
