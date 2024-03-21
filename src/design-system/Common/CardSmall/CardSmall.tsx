@@ -77,7 +77,7 @@ const CardSmall: FC<CardSmallProps> = () => {
         }) => (
           <div
             key={movie.id}
-            className=" max-w-sm rounded-lg overflow-hidden shadow-lg w-[260px] min-w-[284px] h-[380px] min-h-[380px] bg-blue-100 mb-4"
+            className=" max-w-sm rounded-lg overflow-hidden shadow-lg w-[260px] min-w-[284px] h-full min-h-full bg-blue-100 mb-4 pb-4"
           >
             <div>
               <img
@@ -86,7 +86,7 @@ const CardSmall: FC<CardSmallProps> = () => {
                 // alt={movie.title}
               ></img>
             </div>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between ">
               <div className="px-6 py-4 flex flex-col items-start">
                 <div id="title" className="font-bold text-xl mb-2">
                   {movie.title}
@@ -96,7 +96,7 @@ const CardSmall: FC<CardSmallProps> = () => {
                 </p>
               </div>
               <div className="px-6  pb-4 flex flex-row-reverse ">
-                <span className=" bg-white rounded-full py-2 px-1 text-sm font-semibold text-red-800 mr-2 mb-2">
+                <span className="text-sm font-semibold text-red-800 mr-2 mb-2 w-full">
                   +120 KS
                 </span>
               </div>
