@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Pagination, A11y, Mousewheel, Keyboard } from "swiper/modules";
 import { Navigation } from "swiper/modules";
 import CardSmall from "../../Common/CardSmall/CardSmall";
 
@@ -17,8 +17,11 @@ const Slider: FC<SliderProps> = ({}) => {
     <div>
       <>
         <Swiper
+          direction={"horizontal"}
           navigation={true}
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, A11y, Mousewheel, Keyboard]}
+          mousewheel={true}
+          keyboard={true}
           slidesPerView={1}
           spaceBetween={30}
           pagination={{
@@ -31,64 +34,26 @@ const Slider: FC<SliderProps> = ({}) => {
             },
             768: {
               slidesPerView: 4,
-              spaceBetween: 10,
+              spaceBetween: 20,
             },
             1024: {
               slidesPerView: 5,
-              spaceBetween: 10,
+              spaceBetween: 20,
             },
           }}
-          className="myyySwiper flex justify-center bg-blue-900 w-full"
+          className="myyySwiper flex flex-row justify-center bg-blue-900 w-full"
         >
           <SwiperSlide>
-            <CardSmall
-              label={"lion"}
-              ternaryCardSmall={false}
-              types={[]}
-            ></CardSmall>
+            <CardSmall></CardSmall>
           </SwiperSlide>
-          <SwiperSlide>
-            <CardSmall
-              label={"lion"}
-              ternaryCardSmall={false}
-              types={[]}
-            ></CardSmall>
-          </SwiperSlide>
-          <SwiperSlide>
-            <CardSmall
-              label={"lion"}
-              ternaryCardSmall={false}
-              types={[]}
-            ></CardSmall>
-          </SwiperSlide>
-          <SwiperSlide>
-            <CardSmall
-              label={"lion"}
-              ternaryCardSmall={false}
-              types={[]}
-            ></CardSmall>
-          </SwiperSlide>
-          <SwiperSlide>
-            <CardSmall
-              label={"lion"}
-              ternaryCardSmall={false}
-              types={[]}
-            ></CardSmall>
-          </SwiperSlide>
-          <SwiperSlide>
-            <CardSmall
-              label={""}
-              ternaryCardSmall={false}
-              types={[]}
-            ></CardSmall>
-          </SwiperSlide>{" "}
-          <SwiperSlide>
-            <CardSmall
-              label={""}
-              ternaryCardSmall={false}
-              types={[]}
-            ></CardSmall>
-          </SwiperSlide>{" "}
+          {/* <div className="hidden lg:flex lg:flex-row">
+            <SwiperSlide>
+              <CardSmall></CardSmall>
+            </SwiperSlide>
+            <SwiperSlide>
+              <CardSmall></CardSmall>
+            </SwiperSlide>
+          </div> */}
         </Swiper>
       </>
     </div>
