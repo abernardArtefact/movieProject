@@ -52,7 +52,7 @@ const CardBig: FC<CardBigProps> = ({}) => {
         <>
           <div
             key={movie.id}
-            className="max-w-sm w-full lg:max-w-full lg:flex lg:flex-col bg-blue-900 min-h-[600px] h-screen"
+            className="max-w-sm w-full lg:max-w-full lg:flex lg:flex-col bg-blue-900 min-h-[78vh] h-[83vh]"
           >
             <div
               id="technical-description"

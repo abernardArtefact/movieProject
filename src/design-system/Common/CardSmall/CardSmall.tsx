@@ -77,7 +77,7 @@ const CardSmall: FC<CardSmallProps> = () => {
         }) => (
           <div
             key={movie.id}
-            className=" max-w-sm rounded-lg overflow-hidden shadow-lg w-[260px] min-w-[284px] h-full min-h-full bg-blue-100 mb-4 pb-4"
+            className=" max-w-sm rounded-lg overflow-hidden shadow-lg w-[260px] min-w-[284px] min-h-32 bg-blue-100 mb-4 pb-4"
           >
             <div>
               <img
