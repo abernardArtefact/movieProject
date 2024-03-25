@@ -6,18 +6,29 @@ import { Pagination, A11y, Mousewheel, Keyboard } from "swiper/modules";
 import { Navigation } from "swiper/modules";
 import CardSmall from "../../Common/CardSmall/CardSmall";
 
+type CardsData = {
+  id: number;
+  title: string;
+  release_date: string;
+  poster_path: string;
+  overview?: string;
+};
 type SliderProps = {
-  // label: string;
-  // ternarySlider: boolean;
-  // types: Array<{ id: number; name: string; url: string }>;
+  cardsData: CardsData[];
 };
 
-const Slider: FC<SliderProps> = ({}) => {
+const Slider: FC<SliderProps> = ({ cardsData }) => {
+  if (!cardsData) {
+    return (
+      <>
+        <div>Chargement. Ca charge jamais cest top</div>
+      </>
+    );
+  }
   return (
     <div>
       <>
         <Swiper
-          direction={"horizontal"}
           navigation={true}
           modules={[Navigation, Pagination, A11y, Mousewheel, Keyboard]}
           mousewheel={true}
@@ -43,17 +54,11 @@ const Slider: FC<SliderProps> = ({}) => {
           }}
           className="myyySwiper flex flex-row justify-center bg-blue-900 w-full"
         >
-          <SwiperSlide>
-            <CardSmall></CardSmall>
-          </SwiperSlide>
-          {/* <div className="hidden lg:flex lg:flex-row">
-            <SwiperSlide>
-              <CardSmall></CardSmall>
+          {cardsData.map((card) => (
+            <SwiperSlide key={card.id}>
+              <CardSmall moviess={[card]} />
             </SwiperSlide>
-            <SwiperSlide>
-              <CardSmall></CardSmall>
-            </SwiperSlide>
-          </div> */}
+          ))}
         </Swiper>
       </>
     </div>

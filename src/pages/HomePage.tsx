@@ -1,9 +1,34 @@
 // import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Button from "../design-system/Common/Button/Button";
 import GraphHeader from "../design-system/HomePage/GraphHeader/GraphHeader";
 import Slider from "../design-system/HomePage/Slider/Slider";
 
+type CardsData = {
+  id: number;
+  title: string;
+  release_date: string;
+  poster_path: string;
+};
+
 const HomePage = () => {
+  const [cardsData, setCardsData] = useState<CardsData[] | null>(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
+        );
+        const data = await response.json();
+        setCardsData(data.results);
+      } catch (error) {
+        console.error("Erreur pendant la récupération de ma data", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div id="main-container" className="w-screen h-full bg-blue-900 ">
       {/* <Link to="/">Home</Link> */}
@@ -14,9 +39,7 @@ const HomePage = () => {
         Les 10 films les plus populaires{" "}
         <span className="flex justify-center text-2xl">du moment</span>
       </h1>
-      <div className="">
-        <Slider></Slider>
-      </div>
+      <div className="">{cardsData && <Slider cardsData={cardsData} />}</div>
       <Button label={"Voir tous les films"} ternaryButton={false}></Button>
       <div
         id="divider"
