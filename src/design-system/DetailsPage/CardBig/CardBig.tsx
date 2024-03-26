@@ -19,7 +19,13 @@ type CardBigProps = {
 
 const CardBig: FC<CardBigProps> = ({}) => {
   const [movie, setMovies] = useState<MovieDetails | null>(null);
+  const [rating, setRating] = useState<number | null>(null);
   const { id } = useParams<{ id: string }>();
+
+  const handleRating = (newRating: number) => {
+    setRating(newRating);
+    localStorage.setItem(`movieRating-${id}`, JSON.stringify(newRating));
+  };
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -54,6 +60,10 @@ const CardBig: FC<CardBigProps> = ({}) => {
     };
 
     if (id) fetchMovieDetails();
+    const storedRating = localStorage.getItem(`movieRating-${id}`);
+    if (storedRating) {
+      setRating(JSON.parse(storedRating));
+    }
   }, [id]); // Dépendance à l'ID pour relancer l'effet si l'ID change
 
   return (
@@ -69,7 +79,7 @@ const CardBig: FC<CardBigProps> = ({}) => {
               className=" bg-blue-900 p-4 flex flex-col lg:flex-row leading-normal items-center lg:items-start "
             >
               <img
-                className=" lg:w-64 lg:h-64 lg:mr-2 fill-current w-32 h-32 flex items-center lg:mb-8"
+                className=" lg:w-64 lg:h-64 lg:mr-2 fill-current w-32 h-32 flex items-center lg:mb-8 object-cover"
                 src={movie.poster_path}
               ></img>
 
@@ -105,7 +115,10 @@ const CardBig: FC<CardBigProps> = ({}) => {
                   </h3>
                 </div>
               </div>
-              <div id="ratings" className="lg:flex flex-col hidden pt-12 pl-48">
+              <div
+                id="ratingslg"
+                className="lg:flex flex-col hidden pt-12 pl-48"
+              >
                 <div>
                   <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl pb-2">
                     Communanuté
@@ -131,7 +144,7 @@ const CardBig: FC<CardBigProps> = ({}) => {
               {movie.overview}
             </p>
           </div>
-          <div id="ratings" className="lg:hidden">
+          <div id="ratings" className="lg:hidden pt-16">
             <div>
               <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl pb-2">
                 Communanuté
@@ -145,13 +158,16 @@ const CardBig: FC<CardBigProps> = ({}) => {
                 Ma note
               </h3>
               <div className="pb-8">
-                <StarRating totalStars={5} />
+                <StarRating
+                  totalStars={5}
+                  rating={rating}
+                  onRatingChange={handleRating}
+                />
               </div>
             </div>
           </div>
         </>
       )}
-      )
     </div>
   );
 };
