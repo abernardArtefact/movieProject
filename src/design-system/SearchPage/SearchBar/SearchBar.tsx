@@ -1,11 +1,8 @@
 import { FC, SetStateAction } from "react";
 import { useState } from "react";
-import { useDebounce } from "use-debounce";
+import { useDebounceCallback } from "usehooks-ts";
 
-type MovieSearch = {
-  id: number;
-  title: string;
-};
+type Movie = { id: number; title: string };
 
 type SearchBarProps = {
   label: string;
@@ -15,47 +12,42 @@ type SearchBarProps = {
 
 const SearchBar: FC<SearchBarProps> = ({}) => {
   const [input, setInput] = useState("");
-  const [movies, setMovies] = useState<Film[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState();
-  // async : try , catch, finally
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchMovieTitle = async () => {
-    try {
-      setMovies([]);
-    } catch (err) {
-      setError(err.message);
-      setMovies([]);
-    } finally {
-      setLoading(false);
+  const debouncedSearch = useDebounceCallback(() => {
+    if (!input) {
+      setIsLoading(false);
+      return;
     }
+    setIsLoading(true);
+    fetch(
+      `https://api.themoviedb.org/3/search/movie?query=${input}&language=en-US&page=1`,
+      {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZGJlMWI0YTlhZjMwNDI4MGE1MDUwYWZmY2NiZmZiOSIsInN1YiI6IjY1ZmJlZWYyNjA2MjBhMDE3YzI2ZTNiYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.KPAXlN8V9CgYtRWiFz-jSGPAOwHo_JkUauM5q2rl9Lk",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        setMovies(data.results as Movie[]);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Erreur baby", error);
+        setIsLoading(false);
+      });
+  }, 500);
+
+  const handleChange = (e: { target: { value: SetStateAction<string> } }) => {
+    setInput(e.target.value);
+    debouncedSearch();
   };
 
-  const fetchData = (_value: SetStateAction<string>) => {};
-  const data = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      // Authorization: "Bearer e2eb987096c32d058f2dc823b55d9d5a",
-    },
-  };
-
-  // setMovies(data.results)
-
-  fetch(
-    "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-    data
-  )
-    .then((response) => response.json())
-
-    .then((data) => console.log(data))
-    .catch((err) => console.error(err));
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setInput(value);
-    fetchData(value);
-  };
   // maper movies.map(movie) => {key={movie.id} {movie.title}}
   return (
     <div className=" text-blue-200  pt-2 relative mx-auto text-cyan-200">
@@ -67,6 +59,15 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
         value={input}
         onChange={handleChange}
       />
+      {isLoading ? (
+        <div>Chargeme</div>
+      ) : (
+        <ul>
+          {movies.map((movie) => (
+            <li key={movie.id}>{movie.title}</li>
+          ))}
+        </ul>
+      )}
       <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
         <svg
           className="text-blue-200 h-4 w-4 fill-current"
