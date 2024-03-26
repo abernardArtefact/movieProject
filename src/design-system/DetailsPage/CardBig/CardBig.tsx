@@ -132,7 +132,11 @@ const CardBig: FC<CardBigProps> = ({}) => {
                     Ma note
                   </h3>
                   <div className="pb-8">
-                    <StarRating totalStars={5} />
+                    <StarRating
+                      totalStars={5}
+                      rating={rating}
+                      onRatingChange={handleRating}
+                    />
                   </div>
                 </div>
               </div>
