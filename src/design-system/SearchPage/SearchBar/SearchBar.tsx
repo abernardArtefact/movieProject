@@ -11,15 +11,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
   const [input, setInput] = useState("");
   // const options = { method: "GET", headers: { accept: "application/json" } };
 
-  const fetchData = (_value: SetStateAction<string>) => {
-    fetch(
-      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-      options
-    )
-      .then((response) => response.json())
-      .then((response) => console.log(response))
-      .catch((err) => console.error(err));
-  };
+  const fetchData = (_value: SetStateAction<string>) => {};
   const options = {
     method: "GET",
     headers: {
@@ -33,12 +25,14 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
     options
   )
     .then((response) => response.json())
-    .then((response) => console.log(response))
+    .then((data) => console.log(data))
     .catch((err) => console.error(err));
-  const handleChange = (value: SetStateAction<string>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
     setInput(value);
     fetchData(value);
   };
+
   return (
     <div className=" text-blue-200  pt-2 relative mx-auto text-cyan-200">
       <input
@@ -47,7 +41,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
         name="search"
         placeholder="Search"
         value={input}
-        onChange={(e) => handleChange(e.target.value)}
+        onChange={handleChange}
       />
       <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
         <svg
@@ -68,4 +62,5 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
     </div>
   );
 };
+
 export default SearchBar;
