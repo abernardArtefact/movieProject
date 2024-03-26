@@ -1,6 +1,11 @@
 import { FC, SetStateAction } from "react";
 import { useState } from "react";
 
+type MovieSearch = {
+  id: number;
+  title: string;
+};
+
 type SearchBarProps = {
   label: string;
   ternarySearchBar: boolean;
@@ -9,10 +14,24 @@ type SearchBarProps = {
 
 const SearchBar: FC<SearchBarProps> = ({}) => {
   const [input, setInput] = useState("");
-  // const options = { method: "GET", headers: { accept: "application/json" } };
+  const [movies, setMovies] = useState<Film[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
+  // async : try , catch, finally
+
+  const fetchMovieTitle = async () => {
+    try {
+      setMovies([]);
+    } catch (err) {
+      setError(err.message);
+      setMovies([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const fetchData = (_value: SetStateAction<string>) => {};
-  const options = {
+  const data = {
     method: "GET",
     headers: {
       accept: "application/json",
@@ -20,19 +39,23 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
     },
   };
 
+  // setMovies(data.results)
+
   fetch(
     "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-    options
+    data
   )
     .then((response) => response.json())
+
     .then((data) => console.log(data))
     .catch((err) => console.error(err));
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInput(value);
     fetchData(value);
   };
-
+  // maper movies.map(movie) => {key={movie.id} {movie.title}}
   return (
     <div className=" text-blue-200  pt-2 relative mx-auto text-cyan-200">
       <input

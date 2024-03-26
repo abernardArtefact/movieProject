@@ -40,6 +40,7 @@ const Search = () => {
       })
       .catch((err) => console.error(err));
   }, []);
+
   return (
     <div id="main-container" className="w-screen h-full bg-blue-900">
       <div className="lg:flex lg:justify-between lg:content-center lg:mx-8 lg:text-xl lg:px-10">
