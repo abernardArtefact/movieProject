@@ -1,12 +1,23 @@
-import { FC } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { FC, Key } from "react";
+// import { Swiper } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination, A11y, Mousewheel, Keyboard } from "swiper/modules";
-import { Navigation } from "swiper/modules";
 import CardSmall from "../../Common/CardSmall/CardSmall";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  A11y,
+  Keyboard,
+  Mousewheel,
+  Navigation,
+  Pagination,
+} from "swiper/modules";
+// import { Swiper } from "swiper";
 
 type CardsData = {
+  index: Key | null | undefined;
   id: number;
   title: string;
   release_date: string;
@@ -25,6 +36,7 @@ const Slider: FC<SliderProps> = ({ cardsData }) => {
       </>
     );
   }
+  console.log(cardsData);
   return (
     <div>
       <>
@@ -33,30 +45,28 @@ const Slider: FC<SliderProps> = ({ cardsData }) => {
           modules={[Navigation, Pagination, A11y, Mousewheel, Keyboard]}
           mousewheel={true}
           keyboard={true}
-          slidesPerView={1}
-          spaceBetween={30}
           pagination={{
             clickable: true,
           }}
           breakpoints={{
             640: {
               slidesPerView: 1,
-              spaceBetween: 0,
+              spaceBetween: 10,
             },
             768: {
-              slidesPerView: 4,
+              slidesPerView: 2,
               spaceBetween: 20,
             },
             1024: {
-              slidesPerView: 5,
+              slidesPerView: 3,
               spaceBetween: 20,
             },
           }}
           className="myyySwiper flex flex-row justify-center bg-blue-900 w-full"
         >
-          {cardsData.map((card) => (
+          {cardsData?.slice(0, 10).map((card) => (
             <SwiperSlide key={card.id}>
-              <CardSmall moviess={[card]} />
+              <CardSmall movie={card} />
             </SwiperSlide>
           ))}
         </Swiper>
