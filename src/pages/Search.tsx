@@ -50,7 +50,7 @@ const Search = () => {
           <SearchBar label={""} ternarySearchBar={false} types={[]}></SearchBar>
         </div>
       </div>
-      <div className="lg:flex lg:justify-center lg:px-8 flex flex-wrap">
+      <div className="lg:flex lg:justify-center lg:px-8 flex flex-wrap justify-center">
         {cardsData?.map((movie) => (
           <div key={movie.id} className="flex justify-center pt-8 lg:px-8">
             <CardSmall movie={movie}></CardSmall>

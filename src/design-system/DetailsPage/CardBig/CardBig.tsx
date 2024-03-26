@@ -49,7 +49,7 @@ const CardBig: FC<CardBigProps> = ({}) => {
           overview: movieDetails.overview,
         });
       } catch (error) {
-        console.error("Error fetching movie details:", error);
+        console.error("Error mon segnor", error);
       }
     };
 
