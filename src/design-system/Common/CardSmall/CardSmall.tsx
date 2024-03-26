@@ -46,7 +46,7 @@ const CardSmall: FC<CardSmallProps> = ({ movie }) => {
             </span>
           </div>
         </div>
-        <div className="absolute bottom-4 left-5">
+        <div className="absolute bottom-6 left-5">
           <Link
             to={`/Movie/${movie.id}`}
             className="text-blue-900 bg-blue-400 ring-1 ring-inset ring-blue-300 rounded-full px-4 py-0 lg:py-1 border border-blue-300 hover:text-blue-200 hover:bg-blue-900 flex justify-center mx-20 font-medium text-base"
