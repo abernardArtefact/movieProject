@@ -23,7 +23,7 @@ const CardSmall: FC<CardSmallProps> = ({ movie }) => {
   }
   return (
     <div>
-      <div className=" max-w-sm rounded-lg overflow-hidden shadow-lg w-[260px] min-w-[284px] min-h-[28rem] bg-blue-100 mb-4 pb-4">
+      <div className=" relative max-w-sm rounded-lg overflow-hidden shadow-lg w-[260px] min-w-[284px] min-h-[28rem] bg-blue-100 mb-4 pb-4">
         <div>
           <img
             className=" h-[240px] min-w-[240px] w-full  object-cover"
@@ -46,12 +46,14 @@ const CardSmall: FC<CardSmallProps> = ({ movie }) => {
             </span>
           </div>
         </div>
-        <Link
-          to={`/Movie/${movie.id}`}
-          className="text-blue-900 bg-blue-400 ring-1 ring-inset ring-blue-300 rounded-full px-4 py-0 lg:py-1 border border-blue-300 hover:text-blue-200 hover:bg-blue-900 flex justify-center mx-20 font-medium text-base"
-        >
-          Détails {id}
-        </Link>
+        <div className="absolute bottom-4 left-5">
+          <Link
+            to={`/Movie/${movie.id}`}
+            className="text-blue-900 bg-blue-400 ring-1 ring-inset ring-blue-300 rounded-full px-4 py-0 lg:py-1 border border-blue-300 hover:text-blue-200 hover:bg-blue-900 flex justify-center mx-20 font-medium text-base"
+          >
+            Détails {id}
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import { FC, SetStateAction } from "react";
 import { useState } from "react";
+import { useDebounce } from "use-debounce";
 
 type MovieSearch = {
   id: number;
