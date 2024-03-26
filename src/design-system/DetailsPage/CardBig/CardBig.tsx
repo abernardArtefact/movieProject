@@ -1,7 +1,8 @@
 import { FC, useEffect, useState } from "react";
 import StarRating from "../StarRating/StarRating";
+import { useParams } from "react-router";
 
-type Movie = {
+type MovieDetails = {
   id: number;
   title: string;
   release_date: string;
@@ -13,42 +14,51 @@ type CardBigProps = {
   label: string;
   ternaryCardBig: boolean;
   types: Array<{ id: number; name: string; url: string }>;
+  movieDetails: MovieDetails[];
 };
 
 const CardBig: FC<CardBigProps> = ({}) => {
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movie, setMovies] = useState<MovieDetails | null>(null);
+  const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
-    const data = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZGJlMWI0YTlhZjMwNDI4MGE1MDUwYWZmY2NiZmZiOSIsInN1YiI6IjY1ZmJlZWYyNjA2MjBhMDE3YzI2ZTNiYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.KPAXlN8V9CgYtRWiFz-jSGPAOwHo_JkUauM5q2rl9Lk",
-      },
+    const fetchMovieDetails = async () => {
+      const data = {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZGJlMWI0YTlhZjMwNDI4MGE1MDUwYWZmY2NiZmZiOSIsInN1YiI6IjY1ZmJlZWYyNjA2MjBhMDE3YzI2ZTNiYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.KPAXlN8V9CgYtRWiFz-jSGPAOwHo_JkUauM5q2rl9Lk",
+        },
+      };
+
+      try {
+        const response = await fetch(
+          `https://api.themoviedb.org/3/movie/${id}?language=en-US`,
+          data
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch movie details");
+        }
+        const movieDetails = await response.json();
+        setMovies({
+          id: movieDetails.id,
+          title: movieDetails.title,
+          release_date: movieDetails.release_date,
+          poster_path: `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`,
+          overview: movieDetails.overview,
+        });
+      } catch (error) {
+        console.error("Error fetching movie details:", error);
+      }
     };
 
-    fetch(
-      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-      data
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        const loadedMovies: Movie[] = response.results.map((movie: any) => ({
-          id: movie.id,
-          title: movie.title,
-          release_date: movie.release_date,
-          poster_path: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
-          overview: movie.overview,
-        }));
-        setMovies(loadedMovies);
-        console.log(movies);
-      })
-      .catch((err) => console.error(err));
-  }, []);
+    if (id) fetchMovieDetails();
+  }, [id]); // Dépendance à l'ID pour relancer l'effet si l'ID change
+
   return (
     <div>
-      {movies.map((movie) => (
+      {movie && (
         <>
           <div
             key={movie.id}
@@ -140,7 +150,8 @@ const CardBig: FC<CardBigProps> = ({}) => {
             </div>
           </div>
         </>
-      ))}
+      )}
+      )
     </div>
   );
 };
