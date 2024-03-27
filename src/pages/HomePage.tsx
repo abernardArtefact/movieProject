@@ -61,11 +61,7 @@ const HomePage = () => {
         id="divider"
         className=" border border-[1px] border-blue-600 bg-blue-900"
       ></div>
-      <GraphHeader
-        label={""}
-        ternaryGraphHeader={false}
-        types={[]}
-      ></GraphHeader>
+      <GraphHeader></GraphHeader>
     </div>
   );
 };

@@ -3,9 +3,6 @@ import { useState } from "react";
 
 type FilterProps = {
   label: string;
-  // date: string;
-  // ternaryFilter: boolean;
-  // types: Array<{ id: number; name: string; url: string }>;
 };
 
 const Filter: FC<FilterProps> = ({ label }) => {

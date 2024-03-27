@@ -1,11 +1,7 @@
 import { FC } from "react";
 import Filter from "../Filter/Filter";
 
-type GraphHeaderProps = {
-  label: string;
-  ternaryGraphHeader: boolean;
-  types: Array<{ id: number; name: string; url: string }>;
-};
+type GraphHeaderProps = {};
 
 const GraphHeader: FC<GraphHeaderProps> = ({}) => {
   return (

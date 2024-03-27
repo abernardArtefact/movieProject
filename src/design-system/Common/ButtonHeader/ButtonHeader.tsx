@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 type ButtonHeaderProps = {
   label: string;
-  ternaryButtonHeader: boolean;
   to: any;
 };
 

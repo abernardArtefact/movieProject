@@ -5,12 +5,10 @@ import ButtonHeader from "../ButtonHeader/ButtonHeader";
 // import { useNavigate } from "react-router-dom";
 
 type HeaderProps = {
-  label: string;
-  ternaryHeader: boolean;
   onClick: void;
 };
 
-const Header: FC<HeaderProps> = ({}) => {
+const Header: FC<HeaderProps> = () => {
   return (
     <div
       id="container"
@@ -18,20 +16,15 @@ const Header: FC<HeaderProps> = ({}) => {
     >
       <div className="flex items-center">
         {" "}
-        <Logo label={""}></Logo>
+        <Logo></Logo>
       </div>
 
       <div id="buttons" className="flex items-center pb-2 lg:pb-0">
         <ButtonHeader
           label={"Accueil"}
-          ternaryButtonHeader={false}
           to={"/"} //
         ></ButtonHeader>
-        <ButtonHeader
-          label={"Recherche"}
-          ternaryButtonHeader={false}
-          to={"/search"}
-        ></ButtonHeader>
+        <ButtonHeader label={"Recherche"} to={"/search"}></ButtonHeader>
       </div>
     </div>
   );
