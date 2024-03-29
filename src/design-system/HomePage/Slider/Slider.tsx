@@ -14,7 +14,6 @@ import {
   Navigation,
   Pagination,
 } from "swiper/modules";
-// import { Swiper } from "swiper";
 
 type CardsData = {
   index: Key | null | undefined;

@@ -29,6 +29,7 @@ const CardSmall: FC<CardSmallProps> = ({ movie }) => {
   // onClick=> scale etc
   return (
     <motion.div
+      // layout
       animate={{
         scale: [0, 1],
       }}

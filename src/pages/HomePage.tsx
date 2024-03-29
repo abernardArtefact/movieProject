@@ -1,10 +1,10 @@
-// import { Link } from "react-router-dom";
 import { useState, useEffect, Key } from "react";
 import Button from "../design-system/Common/Button/Button";
 import GraphHeader from "../design-system/HomePage/GraphHeader/GraphHeader";
 import Slider from "../design-system/HomePage/Slider/Slider";
 import { fetchData } from "../design-system/fetch/fetch.tsx";
 import { motion } from "framer-motion";
+import Graph from "../design-system/HomePage/Graph/Graph.tsx";
 
 type CardsData = {
   id: number;
@@ -15,7 +15,6 @@ type CardsData = {
 };
 
 const HomePage = () => {
-  // fetchData();
   const [cardsData, setCardsData] = useState<CardsData[] | null>(null);
   useEffect(() => {
     const loadData = async () => {
@@ -25,54 +24,31 @@ const HomePage = () => {
 
     loadData();
   }, []);
-  // const apiKey = import.meta.env.VITE_API_KEY_TMDB;
-
-  // useEffect(() => {
-  //   const data = {
-  //     method: "GET",
-  //     headers: {
-  //       accept: "application/json",
-  //       Authorization: `Bearer ${apiKey}`,
-  //     },
-  //   };
-
-  //   fetch(
-  //     `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1`,
-  //     data
-  //   )
-  //     .then((response) => response.json())
-  //     .then((response) => {
-  //       const loadedMovies: CardsData[] = response.results.map(
-  //         (cardsData: any) => ({
-  //           id: cardsData.id,
-  //           title: cardsData.title,
-  //           release_date: cardsData.release_date,
-  //           poster_path: `https://image.tmdb.org/t/p/w500${cardsData.poster_path}`,
-  //         })
-  //       );
-  //       setCardsData(loadedMovies);
-  //       console.log(cardsData);
-  //     })
-  //     .catch((err) => console.error(err));
-  // }, []);
+  const containerVariant = {
+    hidden: { opacity: 0, y: 30, rotate: [0, 1, 5, 1, 0] },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotate: [0, 3, 20, -5, 0],
+      transition: { duration: 3 },
+    },
+  };
 
   return (
     <div id="main-container" className="w-screen h-full bg-blue-900 ">
-      {/* <Link to="/">Home</Link> */}
-      <motion.span
-        initial={{ opacity: 0 }}
-        // animate={{ opacity: 1 }}
-        animate={{ x: [0, 100, 0] }}
-        transition={{ ease: "easeOut", duration: 2.5 }}
+      <h1
+        id="title"
+        className="text-white text-xl mb-12 flex flex-col justify-center items-center lg:w-full w-screen lg:mx-4  bg-blue-900 font-bold "
       >
-        <h1
-          id="title"
-          className="text-white text-xl mb-12 flex flex-col justify-center items-center lg:w-full w-screen lg:mx-4  bg-blue-900 font-bold "
+        Les 10 films les plus populaires
+        <motion.div
+          variants={containerVariant}
+          initial="hidden"
+          animate="visible"
         >
-          Les 10 films les plus populaires
           <span className="flex justify-center text-2xl">du moment</span>
-        </h1>
-      </motion.span>
+        </motion.div>
+      </h1>
       <div className="">{cardsData && <Slider cardsData={cardsData} />}</div>
       <Button label={"Voir tous les films"} ternaryButton={false}></Button>
       <div
@@ -80,6 +56,7 @@ const HomePage = () => {
         className=" border border-[1px] border-blue-600 bg-blue-900"
       ></div>
       <GraphHeader></GraphHeader>
+      <Graph label={""} ternaryGraph={false} types={[]}></Graph>
     </div>
   );
 };
