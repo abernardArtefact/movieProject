@@ -1,9 +1,10 @@
-import { FC } from "react";
+import { FC, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 // import { useEffect, useState } from "react";
 // import { log } from "echarts/types/src/util/log.js";
 import Movie from "../../../pages/Movie";
 import { useParams } from "react-router";
+import { motion } from "framer-motion";
 
 type Movie = {
   id: number;
@@ -17,19 +18,44 @@ type CardSmallProps = {
 };
 
 const CardSmall: FC<CardSmallProps> = ({ movie }) => {
+  const [isHovered, setHovered] = useState(false);
+  const ref1 = useRef("");
+
   let { id } = useParams();
   if (!movie) {
     return "c'est fichu";
   }
+
+  // onClick=> scale etc
   return (
-    <div>
+    <motion.div
+      animate={{
+        scale: [0, 1],
+      }}
+      transition={{ type: "spring", stiffness: 100 }}
+    >
       <div className=" relative max-w-sm rounded-lg overflow-hidden shadow-lg w-[260px] min-w-[284px] min-h-[28rem] bg-blue-100 mb-4 pb-4">
         <div>
           <img
-            className=" h-[240px] min-w-[240px] w-full  object-cover"
+            className=" h-[240px] min-w-[240px] w-full  object-cover sticky"
             src={movie.poster_path}
             // alt={movie.title}
           ></img>
+        </div>
+
+        <div id="bis" className="absolute top-0  w-full ">
+          <motion.div
+            whileHover={{
+              scale: 3,
+              transition: { duration: 1 },
+            }}
+          >
+            {" "}
+            <img
+              className=" h-[240px] min-w-[240px] w-full  object-cover sticky overflow-clip"
+              src={movie.poster_path}
+            ></img>
+          </motion.div>
         </div>
         <div className="flex items-center justify-between ">
           <div className="px-6 py-4 flex flex-col items-start">
@@ -55,7 +81,7 @@ const CardSmall: FC<CardSmallProps> = ({ movie }) => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

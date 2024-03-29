@@ -29,8 +29,6 @@ const StarRating: FC<StarRatingProps> = ({
       onRatingChange(newRating);
     }
   };
-  // on prend l'index de mon étoile choisie et +1
-  //met à jour létat local => j'avais zappé
 
   return (
     <div className="flex justify-center">
@@ -39,7 +37,6 @@ const StarRating: FC<StarRatingProps> = ({
         <Star
           key={index}
           selected={index < selectedStars}
-          // si l'index est inf alors l'étoile s'affiche coloriée
           onSelect={() => handleSelect(index)}
         />
       ))}

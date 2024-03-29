@@ -14,6 +14,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
   const [input, setInput] = useState("");
   const [movies, setMovies] = useState<Movie[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const apiKey = import.meta.env.VITE_API_KEY_TMDB;
 
   const debouncedSearch = useDebounceCallback(() => {
     if (!input) {
@@ -22,13 +23,15 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
     }
     setIsLoading(true);
     fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${input}&language=en-US&page=1`,
+      // `https://api.themoviedb.org/3/search/movie?query=${input}&language=en-US&page=1&api_key=${apiKey}`,
+      `https://api.themoviedb.org/3/movie/popular?query=${input}language=en-US&page=1`,
+
       {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZGJlMWI0YTlhZjMwNDI4MGE1MDUwYWZmY2NiZmZiOSIsInN1YiI6IjY1ZmJlZWYyNjA2MjBhMDE3YzI2ZTNiYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.KPAXlN8V9CgYtRWiFz-jSGPAOwHo_JkUauM5q2rl9Lk",
+          Authorization: `Bearer ${apiKey}`,
+          // },
         },
       }
     )

@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import StarRating from "../StarRating/StarRating";
 import { useParams } from "react-router";
+import StarRatingCommunity from "../StarRatingCommunity/StarRatingCommunity";
 
 type MovieDetails = {
   id: number;
@@ -124,7 +125,7 @@ const CardBig: FC<CardBigProps> = ({}) => {
                     Communanuté
                   </h3>
                   <div>
-                    <StarRating totalStars={5} />
+                    <StarRating totalStars={10} />
                   </div>
                 </div>
                 <div>
@@ -154,7 +155,7 @@ const CardBig: FC<CardBigProps> = ({}) => {
                 Communanuté
               </h3>
               <div>
-                <StarRating totalStars={5} />
+                <StarRatingCommunity totalStars={10} vote_average={0} />
               </div>
             </div>
             <div>
