@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import Logo from "../Logo/Logo";
 import ButtonHeader from "../ButtonHeader/ButtonHeader";
 import Favoris from "../Favoris/Favoris";

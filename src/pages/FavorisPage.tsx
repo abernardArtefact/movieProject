@@ -12,6 +12,9 @@ const FavorisPage = () => {
     if (favorites.find((fav) => fav.id === movie.id)) {
       return;
     }
+    if (!favorites.length) {
+      return <div>Aucun favori yolo</div>;
+    }
     const newFavorites: any = [...favorites, movie];
     setFavorites(newFavorites);
     localStorage.setItem("favorites", JSON.stringify(newFavorites));
@@ -24,8 +27,11 @@ const FavorisPage = () => {
 
   useEffect(() => {
     const savedFavorites = localStorage.getItem("favorites");
+    console.log("Favorites loaded:", savedFavorites);
     if (savedFavorites) {
       setFavorites(JSON.parse(savedFavorites));
+    } else {
+      setFavorites([]);
     }
   }, []);
 

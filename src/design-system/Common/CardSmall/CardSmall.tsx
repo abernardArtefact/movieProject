@@ -105,9 +105,11 @@ const CardSmall: FC<CardSmallProps> = ({ movie, addFavorite }) => {
               className="w-sreen h-6  flex justify-center items-center"
               onClick={() => addFavorite(movie)}
             >
-              <span onClick={(event) => toggleSelect(event)}>
-                {selected ? "🩷" : "🩶"}
-              </span>
+              <button onClick={() => addFavorite(movie)}>
+                <span className="" onClick={(event) => toggleSelect(event)}>
+                  {selected ? "🩷" : "🩶"}
+                </span>
+              </button>
             </div>
           </div>
         </div>

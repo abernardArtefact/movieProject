@@ -28,6 +28,13 @@ type SliderProps = {
 };
 
 const Slider: FC<SliderProps> = ({ cardsData }) => {
+  const addFavorite = (movie: { id: any }) => {
+    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    if (!favorites.some((favorite: { id: any }) => favorite.id === movie.id)) {
+      favorites.push(movie);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+  };
   if (!cardsData) {
     return (
       <>
@@ -65,17 +72,7 @@ const Slider: FC<SliderProps> = ({ cardsData }) => {
         >
           {cardsData?.slice(0, 10).map((card) => (
             <SwiperSlide key={card.id}>
-              <CardSmall
-                movie={card}
-                addFavorite={function (_movie: {
-                  id: number;
-                  title: string;
-                  release_date: string;
-                  poster_path: string;
-                }): void {
-                  throw new Error("Function not implemented.");
-                }}
-              />
+              <CardSmall movie={card} addFavorite={addFavorite} />
             </SwiperSlide>
           ))}
         </Swiper>

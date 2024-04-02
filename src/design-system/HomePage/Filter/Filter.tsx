@@ -1,19 +1,18 @@
-import { FC } from "react";
+import { FC, SetStateAction } from "react";
 import { useState } from "react";
 
 type FilterProps = {
   label: string;
-  genre: string;
-  years: string;
 };
 
 const Filter: FC<FilterProps> = ({ label }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleIsOpen = () => setIsOpen(!isOpen);
-
-  // const genre = ["Tous les genres", "Action", "Comédie", "Drame"];
-  // const years = ["2020", "2021", "2022", "2023", "2024"];
-
+  const [selectedLabel, setSelectedLabel] = useState(label);
+  const handleSelection = (year: SetStateAction<string>) => {
+    setSelectedLabel(year);
+    setIsOpen(false);
+  };
   return (
     <div
       onClick={handleIsOpen}
@@ -26,7 +25,7 @@ const Filter: FC<FilterProps> = ({ label }) => {
           id="menu-button"
           aria-expanded={isOpen}
         >
-          {label}
+          {selectedLabel}
           <svg
             className="mr-1 h-5 w-5 text-gray-400"
             viewBox="0 0 20 20"
@@ -45,24 +44,20 @@ const Filter: FC<FilterProps> = ({ label }) => {
       <>
         {isOpen ? (
           <ul
-            className={` w-[86px] border absolute top-14 z-10 bg-blue-200  text-blue-900 font-semibold ring-1 ring-inset ring-blue-300 rounded-lg`}
+            className={` w-[86px] border absolute top-14 z-10 bg-blue-200  text-blue-900 font-semibold ring-1 ring-inset ring-blue-300 rounded-lg `}
           >
-            <li
-              className={`relative w-[100px] h-[40px] mx-6 grid grid-cols-2 font-light place-content-center`}
-            >
-              yo
-            </li>
-
-            <li
-              className={`relative w-[100px] h-[40px] mx-6 grid grid-cols-2 font-light place-content-center`}
-            >
-              yaya
-            </li>
-            <li
-              className={`relative w-[100px] h-[40px] mx-6 grid grid-cols-2 font-light place-content-center`}
-            >
-              hfvizhv
-            </li>
+            {["2020", "2021", "2022", "2023", "2024"].map((year) => (
+              <li
+                key={year}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleSelection(year);
+                }}
+                className={`relative w-[100px] h-[40px] mx-6 grid grid-cols-2 font-light place-content-center `}
+              >
+                {year}
+              </li>
+            ))}
           </ul>
         ) : (
           ""

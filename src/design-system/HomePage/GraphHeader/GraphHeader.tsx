@@ -10,10 +10,10 @@ const GraphHeader: FC<GraphHeaderProps> = ({}) => {
         Statistique par année
       </h1>
       <div className="flex justify-center lg:justify-start  ">
-        <Filter label={"2020"} genre={""} years={""}></Filter>
+        <Filter label={"2020"}></Filter>
         <div className="flex items-center text-blue-200">à</div>
-        <Filter label={"2024"} genre={""} years={""}></Filter>
-        <Filter label={"Genre"} genre={""} years={""}></Filter>
+        <Filter label={"2024"}></Filter>
+        <Filter label={"Genre"}></Filter>
       </div>
     </div>
   );
