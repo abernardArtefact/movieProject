@@ -1,5 +1,6 @@
 import { FC } from "react";
 import Filter from "../Filter/Filter";
+import FilterGenre from "../FilterGenre/FilterGenre";
 
 type GraphHeaderProps = {};
 
@@ -13,7 +14,7 @@ const GraphHeader: FC<GraphHeaderProps> = ({}) => {
         <Filter label={"2020"}></Filter>
         <div className="flex items-center text-blue-200">à</div>
         <Filter label={"2024"}></Filter>
-        <Filter label={"Genre"}></Filter>
+        <FilterGenre label={"Genre"}></FilterGenre>
       </div>
     </div>
   );
