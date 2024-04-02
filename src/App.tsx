@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import Movie from "./pages/Movie";
 import Search from "./pages/Search";
 import Layout from "./layout";
+import FavorisPage from "./pages/FavorisPage";
 
 // const router = createBrowserRouter([
 //   {
@@ -59,6 +60,7 @@ const App: React.FC = () => {
         { path: "/Movie", element: <Movie /> },
         { path: "/Search", element: <Search /> },
         { path: "/Movie/:id", element: <Movie /> },
+        { path: "/FavorisPage", element: <FavorisPage /> },
       ],
     },
   ]);

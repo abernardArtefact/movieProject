@@ -3,7 +3,7 @@ import Header from "./design-system/Common/Header/Header";
 
 const Layout = () => (
   <div>
-    <Header label={""} ternaryHeader={false} onClick={undefined} />
+    <Header onClick={undefined} />
     <Outlet />
   </div>
 );

@@ -22,39 +22,6 @@ const Search = () => {
 
     loadData();
   }, []);
-  // const [cardsData, setCardsData] = useState<CardsData[] | null>(null);
-  // const apiKey = import.meta.env.VITE_API_KEY_TMDB;
-
-  // useEffect(() => {
-  //   const data = {
-  //     method: "GET",
-  //     headers: {
-  //       accept: "application/json",
-  //       Authorization: `Bearer ${import.meta.env.VITE_API_KEY_TMDB}`,
-  //     },
-  //   };
-  //   // console.log(data.headers.Authorization);
-
-  //   fetch(
-  //     `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${apiKey}`,
-
-  //     data
-  //   )
-  //     .then((response) => response.json())
-  //     .then((response) => {
-  //       const loadedMovies: CardsData[] = response.results.map(
-  //         (cardsData: CardsData) => ({
-  //           id: cardsData.id,
-  //           title: cardsData.title,
-  //           release_date: cardsData.release_date,
-  //           poster_path: `https://image.tmdb.org/t/p/w500${cardsData.poster_path}`,
-  //         })
-  //       );
-  //       setCardsData(loadedMovies);
-  //       console.log(cardsData);
-  //     })
-  //     .catch((err) => console.error(err));
-  // }, []);
 
   return (
     <div id="main-container" className="w-screen h-full bg-blue-900">
@@ -78,3 +45,37 @@ const Search = () => {
 };
 
 export default Search;
+
+// const [cardsData, setCardsData] = useState<CardsData[] | null>(null);
+// const apiKey = import.meta.env.VITE_API_KEY_TMDB;
+
+// useEffect(() => {
+//   const data = {
+//     method: "GET",
+//     headers: {
+//       accept: "application/json",
+//       Authorization: `Bearer ${import.meta.env.VITE_API_KEY_TMDB}`,
+//     },
+//   };
+//   // console.log(data.headers.Authorization);
+
+//   fetch(
+//     `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${apiKey}`,
+
+//     data
+//   )
+//     .then((response) => response.json())
+//     .then((response) => {
+//       const loadedMovies: CardsData[] = response.results.map(
+//         (cardsData: CardsData) => ({
+//           id: cardsData.id,
+//           title: cardsData.title,
+//           release_date: cardsData.release_date,
+//           poster_path: `https://image.tmdb.org/t/p/w500${cardsData.poster_path}`,
+//         })
+//       );
+//       setCardsData(loadedMovies);
+//       console.log(cardsData);
+//     })
+//     .catch((err) => console.error(err));
+// }, []);

@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from "react";
+import { FC, useState } from "react";
 import { Link } from "react-router-dom";
 import Movie from "../../../pages/Movie";
 import { useParams } from "react-router";
@@ -13,11 +13,42 @@ type Movie = {
 
 type CardSmallProps = {
   movie: Movie;
+  addFavorite: (movie: Movie) => void;
 };
 
-const CardSmall: FC<CardSmallProps> = ({ movie }) => {
+const CardSmall: FC<CardSmallProps> = ({ movie, addFavorite }) => {
   // const [isHovered, setHovered] = useState(false);
   // const ref1 = useRef("");
+
+  const [selected, setSelected] = useState(() => {
+    const selectedMovies = JSON.parse(
+      localStorage.getItem("selectedMovies") || "[]"
+    );
+    return selectedMovies.includes(movie.id);
+  });
+  const toggleSelect = (event: { stopPropagation: () => void }) => {
+    event.stopPropagation();
+    setSelected((currentSelected: any) => {
+      const updatedSelected = !currentSelected;
+      const selectedMovies = JSON.parse(
+        localStorage.getItem("selectedMovies") || "[]"
+      );
+
+      if (updatedSelected) {
+        localStorage.setItem(
+          "selectedMovies",
+          JSON.stringify([...selectedMovies, movie.id])
+        );
+      } else {
+        localStorage.setItem(
+          "selectedMovies",
+          JSON.stringify(selectedMovies.filter((id: number) => id !== movie.id))
+        );
+      }
+
+      return updatedSelected;
+    });
+  };
 
   let { id } = useParams();
   if (!movie) {
@@ -30,7 +61,7 @@ const CardSmall: FC<CardSmallProps> = ({ movie }) => {
       animate={{
         scale: [0, 1],
       }}
-      transition={{ type: "spring", stiffness: 100 }}
+      transition={{ type: "spring", stiffness: 100, duration: 0.5 }}
     >
       <div className=" relative max-w-sm rounded-lg overflow-hidden shadow-lg w-[260px] min-w-[284px] min-h-[28rem] bg-blue-100 mb-4 pb-4">
         <div>
@@ -55,22 +86,32 @@ const CardSmall: FC<CardSmallProps> = ({ movie }) => {
             ></img>
           </motion.div>
         </div>
-        <div className="flex items-center justify-between ">
-          <div className="px-6 py-4 flex flex-col items-start">
+        <div className="flex justify-center items-center pt-2 ">
+          <div className="">
             <div id="title" className="font-bold text-xl mb-2">
               {movie.title}
             </div>
-            <p id="year" className="text-gray-700 text-base">
+            <p id="year" className="text-gray-700 text-base ">
               {movie.release_date}
             </p>
-          </div>
-          <div className="px-6  pb-4 flex flex-row-reverse ">
-            <span className="text-sm font-semibold text-red-800 mr-2 mb-2 w-full">
-              +120 KS
-            </span>
+            <div className="px-6   ">
+              {/* flex flex-row-reverse */}
+              <span className="text-sm font-semibold text-red-800 mr-2  w-full">
+                +120 KS
+              </span>
+            </div>
+            <div
+              id="favoris-handle"
+              className="w-sreen h-6  flex justify-center items-center"
+              onClick={() => addFavorite(movie)}
+            >
+              <span onClick={(event) => toggleSelect(event)}>
+                {selected ? "🩷" : "🩶"}
+              </span>
+            </div>
           </div>
         </div>
-        <div className="absolute bottom-6 left-5">
+        <div className="absolute bottom-6 left-5 ">
           <Link
             to={`/Movie/${movie.id}`}
             className="text-blue-900 bg-blue-400 ring-1 ring-inset ring-blue-300 rounded-full px-4 py-0 lg:py-1 border border-blue-300 hover:text-blue-200 hover:bg-blue-900 flex justify-center mx-20 font-medium text-base"

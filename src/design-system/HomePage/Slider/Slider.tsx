@@ -65,7 +65,17 @@ const Slider: FC<SliderProps> = ({ cardsData }) => {
         >
           {cardsData?.slice(0, 10).map((card) => (
             <SwiperSlide key={card.id}>
-              <CardSmall movie={card} />
+              <CardSmall
+                movie={card}
+                addFavorite={function (_movie: {
+                  id: number;
+                  title: string;
+                  release_date: string;
+                  poster_path: string;
+                }): void {
+                  throw new Error("Function not implemented.");
+                }}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
