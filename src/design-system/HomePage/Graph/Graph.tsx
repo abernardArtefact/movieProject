@@ -55,7 +55,7 @@ const data = [
 const Graph: FC<GraphProps> = ({}) => {
   return (
     <ResponsiveContainer width="100%" height="100%">
-      <div className=" flex justify-center w-screen">
+      <div className=" flex justify-center w-screen pb-16">
         <ComposedChart
           width={350}
           height={300}
@@ -78,7 +78,6 @@ const Graph: FC<GraphProps> = ({}) => {
             stroke="#60aedb"
             activeDot={{ r: 8 }}
           />
-          {/* <Line type="monotone" dataKey="note moyenne" stroke="#82ca9d" /> */}
 
           <Bar dataKey="note moyenne" barSize={20} fill="#b35a0c" />
         </ComposedChart>

@@ -1,7 +1,5 @@
 import { FC, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-// import { useEffect, useState } from "react";
-// import { log } from "echarts/types/src/util/log.js";
 import Movie from "../../../pages/Movie";
 import { useParams } from "react-router";
 import { motion } from "framer-motion";
@@ -18,8 +16,8 @@ type CardSmallProps = {
 };
 
 const CardSmall: FC<CardSmallProps> = ({ movie }) => {
-  const [isHovered, setHovered] = useState(false);
-  const ref1 = useRef("");
+  // const [isHovered, setHovered] = useState(false);
+  // const ref1 = useRef("");
 
   let { id } = useParams();
   if (!movie) {
@@ -29,7 +27,6 @@ const CardSmall: FC<CardSmallProps> = ({ movie }) => {
   // onClick=> scale etc
   return (
     <motion.div
-      // layout
       animate={{
         scale: [0, 1],
       }}

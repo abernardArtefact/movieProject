@@ -3,11 +3,17 @@ import { useState } from "react";
 
 type FilterProps = {
   label: string;
+  genre: string;
+  years: string;
 };
 
 const Filter: FC<FilterProps> = ({ label }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleIsOpen = () => setIsOpen(!isOpen);
+
+  // const genre = ["Tous les genres", "Action", "Comédie", "Drame"];
+  // const years = ["2020", "2021", "2022", "2023", "2024"];
+
   return (
     <div
       onClick={handleIsOpen}

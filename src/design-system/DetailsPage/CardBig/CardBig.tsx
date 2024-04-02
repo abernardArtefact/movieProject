@@ -149,7 +149,7 @@ const CardBig: FC<CardBigProps> = ({}) => {
               {movie.overview}
             </p>
           </div>
-          <div id="ratings" className="lg:hidden pt-16">
+          <div id="ratings" className="lg:hidden pt-16 bg-blue-900">
             <div>
               <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl pb-2">
                 Communanuté

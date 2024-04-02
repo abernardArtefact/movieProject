@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 
 type ButtonProps = {
   label: string;
-  ternaryButton: boolean;
 };
 
 const Button: FC<ButtonProps> = ({ label }) => {

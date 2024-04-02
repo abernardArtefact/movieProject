@@ -50,7 +50,7 @@ const HomePage = () => {
         </motion.div>
       </h1>
       <div className="">{cardsData && <Slider cardsData={cardsData} />}</div>
-      <Button label={"Voir tous les films"} ternaryButton={false}></Button>
+      <Button label={"Voir tous les films"}></Button>
       <div
         id="divider"
         className=" border border-[1px] border-blue-600 bg-blue-900"

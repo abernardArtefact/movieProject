@@ -1,14 +1,31 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import Logo from "../Logo/Logo";
 import ButtonHeader from "../ButtonHeader/ButtonHeader";
-// import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
+import Favoris from "../Favoris/Favoris";
 
 type HeaderProps = {
   onClick: void;
 };
 
 const Header: FC<HeaderProps> = () => {
+  // const [favorites, setFavorites] = useState([]);
+
+  // const addFavorites = (movie: any) => {
+  //   const newFavorites = [...favorites, movie];
+  //   setFavorites(newFavorites);
+  //   localStorage.setItem('favorites', JSON.stringify(newFavorites));
+  // };
+  // const removeFavorites = (movieId: any) => {
+  //   setFavorites(favorites.filter((movie)=> movie.id !=== movieId));
+  // };
+
+  // useEffect(() => {
+  //   const savedFavorites = localStorage.getItem('favorites');
+  //   if (savedFavorites) {
+  //     setFavorites(JSON.parse(savedFavorites));
+  //   }
+  // }, []);
+
   return (
     <div
       id="container"
@@ -22,6 +39,7 @@ const Header: FC<HeaderProps> = () => {
       <div id="buttons" className="flex items-center pb-2 lg:pb-0">
         <ButtonHeader label={"Accueil"} to={"/"}></ButtonHeader>
         <ButtonHeader label={"Recherche"} to={"/search"}></ButtonHeader>
+        <Favoris label={"🩷"}></Favoris>
       </div>
     </div>
   );
