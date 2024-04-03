@@ -13,19 +13,16 @@ type Movie = {
 
 type CardSmallProps = {
   movie: Movie;
-  addFavorite: (movie: Movie) => void;
 };
 
-const CardSmall: FC<CardSmallProps> = ({ movie, addFavorite }) => {
-  // const [isHovered, setHovered] = useState(false);
-  // const ref1 = useRef("");
-
+const CardSmall: FC<CardSmallProps> = ({ movie }) => {
   const [selected, setSelected] = useState(() => {
     const selectedMovies = JSON.parse(
       localStorage.getItem("selectedMovies") || "[]"
     );
     return selectedMovies.includes(movie.id);
   });
+
   const toggleSelect = (event: { stopPropagation: () => void }) => {
     event.stopPropagation();
     setSelected((currentSelected: any) => {
@@ -103,9 +100,10 @@ const CardSmall: FC<CardSmallProps> = ({ movie, addFavorite }) => {
             <div
               id="favoris-handle"
               className="w-sreen h-6  flex justify-center items-center"
-              onClick={() => addFavorite(movie)}
+              // onClick={() => addFavorite(movie)}
             >
-              <button onClick={() => addFavorite(movie)}>
+              <button>
+                {/* onClick={() => addFavorite(movie)} */}
                 <span className="" onClick={(event) => toggleSelect(event)}>
                   {selected ? "🩷" : "🩶"}
                 </span>

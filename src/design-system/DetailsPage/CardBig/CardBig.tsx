@@ -9,6 +9,9 @@ type MovieDetails = {
   release_date: string;
   poster_path: string;
   overview: string;
+  profit: number;
+  revenue: string;
+  budget: string;
 };
 
 type CardBigProps = {
@@ -22,6 +25,7 @@ const CardBig: FC<CardBigProps> = ({}) => {
   const [movie, setMovies] = useState<MovieDetails | null>(null);
   const [rating, setRating] = useState<number | null>(null);
   const { id } = useParams<{ id: string }>();
+  const apiKey = import.meta.env.VITE_API_KEY_TMDB;
 
   const handleRating = (newRating: number) => {
     setRating(newRating);
@@ -34,8 +38,7 @@ const CardBig: FC<CardBigProps> = ({}) => {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZGJlMWI0YTlhZjMwNDI4MGE1MDUwYWZmY2NiZmZiOSIsInN1YiI6IjY1ZmJlZWYyNjA2MjBhMDE3YzI2ZTNiYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.KPAXlN8V9CgYtRWiFz-jSGPAOwHo_JkUauM5q2rl9Lk",
+          Authorization: `Bearer ${apiKey}`,
         },
       };
 
@@ -54,6 +57,9 @@ const CardBig: FC<CardBigProps> = ({}) => {
           release_date: movieDetails.release_date,
           poster_path: `https://image.tmdb.org/t/p/w500${movieDetails.poster_path}`,
           overview: movieDetails.overview,
+          budget: movieDetails.budget,
+          revenue: movieDetails.revenue,
+          profit: movieDetails.revenue - movieDetails.budget,
         });
       } catch (error) {
         console.error("Error mon segnor", error);
@@ -98,20 +104,20 @@ const CardBig: FC<CardBigProps> = ({}) => {
                   <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl">
                     Budget
                     <span className="text-base lg:text-xl  text-blue-200 pl-4">
-                      160 M$
+                      {movie.budget} M$
                     </span>
                   </h3>
                   <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl">
                     Revenu
                     <span className="text-base lg:text-xl  text-blue-200 pl-4">
-                      868 M$
+                      {movie.revenue} M$
                     </span>
                   </h3>
                   <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl">
                     Recettes
                     <span className="text-base lg:text-xl text-blue-200 pl-4">
                       {" "}
-                      708 M$
+                      {movie.profit} M$
                     </span>
                   </h3>
                 </div>

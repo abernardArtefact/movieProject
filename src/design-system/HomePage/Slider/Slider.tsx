@@ -72,7 +72,7 @@ const Slider: FC<SliderProps> = ({ cardsData }) => {
         >
           {cardsData?.slice(0, 10).map((card) => (
             <SwiperSlide key={card.id}>
-              <CardSmall movie={card} addFavorite={addFavorite} />
+              <CardSmall movie={card} />
             </SwiperSlide>
           ))}
         </Swiper>

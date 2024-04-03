@@ -26,10 +26,10 @@ const StarRatingCommunity: FC<StarRatingCommunityProps> = ({}) => {
 
   return (
     <div className="flex justify-center">
-      {stars.map((star, index) => (
+      {stars.map((star, ind) => (
         <>
           <Star
-            key={index}
+            key={ind}
             selected={star}
             onSelect={function (): void {
               throw new Error("nope");

@@ -1,5 +1,5 @@
-import { FC, SetStateAction } from "react";
-import { useState } from "react";
+import { FC } from "react";
+import { useState, useEffect } from "react";
 import { useDebounceCallback } from "usehooks-ts";
 
 type Movie = { id: number; title: string };
@@ -24,14 +24,13 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
     setIsLoading(true);
     fetch(
       // `https://api.themoviedb.org/3/search/movie?query=${input}&language=en-US&page=1&api_key=${apiKey}`,
-      `https://api.themoviedb.org/3/movie/popular?query=${input}language=en-US&page=1`,
+      `https://api.themoviedb.org/3/movie/popular?query=${encodeURIComponent(input)}language=en-US&page=1`,
 
       {
         method: "GET",
         headers: {
           accept: "application/json",
           Authorization: `Bearer ${apiKey}`,
-          // },
         },
       }
     )
@@ -46,7 +45,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
       });
   }, 500);
 
-  const handleChange = (e: { target: { value: SetStateAction<string> } }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
     debouncedSearch();
   };
