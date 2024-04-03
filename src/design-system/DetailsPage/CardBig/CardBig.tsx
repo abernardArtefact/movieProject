@@ -100,7 +100,7 @@ const CardBig: FC<CardBigProps> = ({}) => {
                   </h1>
                   <p className="text-white pl-2">{movie.release_date}</p>
                 </div>
-                <div className="flex flex-col items-start ">
+                <div className="grid grid-cols-1 gap-4  ">
                   <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl">
                     Budget
                     <span className="text-base lg:text-xl  text-blue-200 pl-4">
