@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import StarRating from "../StarRating/StarRating";
 import { useParams } from "react-router";
-import StarRatingCommunity from "../StarRatingCommunity/StarRatingCommunity";
+// import StarRatingCommunity from "../StarRatingCommunity/StarRatingCommunity";
 
 type MovieDetails = {
   id: number;
@@ -12,6 +12,7 @@ type MovieDetails = {
   profit: number;
   revenue: string;
   budget: string;
+  rating: number;
 };
 
 type CardBigProps = {
@@ -60,6 +61,7 @@ const CardBig: FC<CardBigProps> = ({}) => {
           budget: movieDetails.budget,
           revenue: movieDetails.revenue,
           profit: movieDetails.revenue - movieDetails.budget,
+          rating: movieDetails.vote_average,
         });
       } catch (error) {
         console.error("Error mon segnor", error);
@@ -92,10 +94,10 @@ const CardBig: FC<CardBigProps> = ({}) => {
 
               <div className="lg:flex lg:flex-col lg:gap-2 lg:pl-8">
                 <div
-                  id="title"
-                  className="flex items-center justify-center py-4 lg:py-8"
+                  id="title_and_date"
+                  className="flex flex-col items-center justify-center py-4 lg:py-8"
                 >
-                  <h1 className="text-white font-bold text-3xl  flex justify-center ">
+                  <h1 className="text-white font-bold text-3xl  px-6 pb-4">
                     {movie.title}
                   </h1>
                   <p className="text-white pl-2">{movie.release_date}</p>
@@ -128,11 +130,9 @@ const CardBig: FC<CardBigProps> = ({}) => {
               >
                 <div>
                   <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl pb-2">
-                    Communanuté
+                    Note de la communauté : {movie.rating} / 10
                   </h3>
-                  <div>
-                    <StarRating totalStars={10} />
-                  </div>
+                  <div>{/* <StarRating totalStars={10} /> */}</div>
                 </div>
                 <div>
                   <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl py-2">
@@ -158,10 +158,10 @@ const CardBig: FC<CardBigProps> = ({}) => {
           <div id="ratings" className="lg:hidden pt-16 bg-blue-900">
             <div>
               <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl pb-2">
-                Communanuté
+                Note de la communauté : {movie.rating} / 10
               </h3>
               <div>
-                <StarRatingCommunity totalStars={10} vote_average={0} />
+                {/* <StarRatingCommunity totalStars={10} vote_average={0} /> */}
               </div>
             </div>
             <div>

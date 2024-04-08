@@ -24,6 +24,7 @@ const HomePage = () => {
 
     loadData();
   }, []);
+
   const containerVariant = {
     hidden: { opacity: 0, y: 30, rotate: [0, 1, 5, 1, 0] },
     visible: {

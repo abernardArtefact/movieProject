@@ -11,9 +11,9 @@ const GraphHeader: FC<GraphHeaderProps> = ({}) => {
         Statistique par année
       </h1>
       <div className="flex justify-center lg:justify-start  ">
-        <Filter label={"2020"}></Filter>
+        <Filter label={"2020"} movieDetails={[]}></Filter>
         <div className="flex items-center text-blue-200">à</div>
-        <Filter label={"2024"}></Filter>
+        <Filter label={"2024"} movieDetails={[]}></Filter>
         <FilterGenre label={"Genre"}></FilterGenre>
       </div>
     </div>

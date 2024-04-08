@@ -2,7 +2,6 @@ import { FC, useEffect } from "react";
 import { useState } from "react";
 import Star from "../../../design-system/DetailsPage/Star/Star";
 import { fetchData } from "../../../design-system/fetch/fetch.tsx";
-import { log } from "echarts/types/src/util/log.js";
 
 type StarRatingCommunityProps = {
   totalStars?: number;

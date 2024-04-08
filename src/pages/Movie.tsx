@@ -2,7 +2,10 @@ import CardBig from "../design-system/DetailsPage/CardBig/CardBig";
 
 const Movie = () => {
   return (
-    <div id="main-container" className="w-screen h-screen bg-blue-900 pt-20">
+    <div
+      id="main-container"
+      className="w-screen h-screen bg-blue-900 lg:pt-20 pt-4"
+    >
       <div className="lg:flex lg:justify-between lg:content-center lg:mx-8 lg:text-xl lg:px-10 ">
         <div className="lg:flex lg:justify-center w-screen h-full">
           <div className="">

@@ -1,18 +1,65 @@
-import { FC, SetStateAction } from "react";
+import { FC, SetStateAction, useEffect } from "react";
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 
 type FilterProps = {
   label: string;
+  movieDetails: MovieDetails[];
 };
 
-const Filter: FC<FilterProps> = ({ label }) => {
+type MovieDetails = {
+  id: number;
+  title: string;
+  release_date: string;
+  poster_path: string;
+  overview: string;
+  profit: number;
+  revenue: string;
+  budget: string;
+  rating: number;
+};
+
+const Filter: FC<FilterProps> = ({ label, movieDetails }) => {
+  const { id } = useParams<{ id: string }>();
   const [isOpen, setIsOpen] = useState(false);
+  const [movies, setMovies] = useState(false);
   const handleIsOpen = () => setIsOpen(!isOpen);
+  const apiKey = import.meta.env.VITE_API_KEY_TMDB;
   const [selectedLabel, setSelectedLabel] = useState(label);
   const handleSelection = (year: SetStateAction<string>) => {
     setSelectedLabel(year);
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    const fetchMovieDetails = async () => {
+      if (id) {
+        try {
+          const response = await fetch(
+            `https://api.themoviedb.org/3/movie/${id}?language=en-US&api_key=${apiKey}`
+          );
+          const data = await response.json();
+          setMovies(data.results);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    };
+    fetchMovieDetails();
+  }, [id]);
+
+  const numberOfMoviesByYearSelected = movieDetails
+    ? movieDetails.filter((movie: any) => {
+        const releaseYear = movie.release_date.split("-")[0];
+        return releaseYear === selectedLabel;
+      }).length
+    : 0;
+  if (!movieDetails) {
+    return <div>Chargement...</div>;
+  }
+
+  console.log(movieDetails);
+
   return (
     <div
       onClick={handleIsOpen}
@@ -68,3 +115,13 @@ const Filter: FC<FilterProps> = ({ label }) => {
 };
 
 export default Filter;
+// 1/stocker la valeur de selectedLabel pour savoir ce qui est sélectionné : c'est ok
+// 2/ calcul du nombre de film dans une année
+// selectedLabel= année sélectionnée
+// const filterMovie = (movie: { release_year: string }) => {
+//   const release_year = movie.release_year.split("-")[0];
+//   return release_year === selectedLabel;
+// };
+// il faut trouver combien de film dans l'année: nb de film par année
+// const numberOfMoviesByYearSelected = filterMovie.length;
+// console.log(numberOfMoviesByYearSelected);

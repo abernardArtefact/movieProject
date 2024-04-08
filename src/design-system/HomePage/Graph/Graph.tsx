@@ -1,17 +1,16 @@
-import { FC } from "react";
+import { FC, useContext, useState } from "react";
 import {
-  LineChart,
   Line,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
-  BarChart,
   Bar,
   ResponsiveContainer,
   ComposedChart,
 } from "recharts";
+// import StockContext from "../../../context/StockContext";
 
 type GraphProps = {
   label: string;
@@ -53,7 +52,42 @@ const data = [
 ];
 
 const Graph: FC<GraphProps> = ({}) => {
+  //   const context = useContext(StockContext);
+  //   const [data, setData] = useState(dataMockup);
+  //   const [filter, setFilter] = useState("defaultFilter");
+
+  //   const updateChartData = async () => {
+  //   try {
+
+  //     const resolution = context[filter as any].resolution ;
+  //     const result = await fetchHistoricalData(
+
+  //       resolution,
+
+  //     );
+  //     setData(formatData(result));
+  //   } catch (error) {
+  //     setData([]);
+  //     console.log(error);
+  //   }
+  // };
+
+  // updateChartData();
+  // }, [ filter];
+
   return (
+    // <><ul className="">
+    //   {Object.keys(chartConfig).map((item) => (
+    //     <li key={item}>
+    //       <Filter
+    //         text={item}
+    //         active={filter === item}
+    //         onClick={() => {
+    //           setFilter(item);
+    //         } } />
+    //     </li>
+    //   ))}
+    // </ul>
     <ResponsiveContainer width="100%" height="100%">
       <div className=" flex justify-center w-screen pb-16">
         <ComposedChart
