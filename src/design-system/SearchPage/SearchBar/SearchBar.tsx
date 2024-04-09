@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { useState } from "react";
 import { debounce } from "lodash";
+import { Link } from "react-router-dom";
 
 type Movie = { id: number; title: string };
 
@@ -64,7 +65,11 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
       ) : (
         <ul>
           {movies.length > 0 ? (
-            movies.map((movie) => <li key={movie.id}>{movie.title}</li>)
+            movies.map((movie) => (
+              <li key={movie.id}>
+                <Link to={`/Movie/${movie.id}`}>{movie.title}</Link>
+              </li>
+            ))
           ) : (
             <div></div>
           )}
@@ -91,9 +96,3 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
 };
 
 export default SearchBar;
-function useDebounceCallBack(
-  arg0: (searchValue: string) => void,
-  arg1: number
-) {
-  throw new Error("Function not implemented.");
-}
