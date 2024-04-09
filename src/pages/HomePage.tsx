@@ -26,10 +26,10 @@ const HomePage = () => {
   }, []);
 
   const addFavorite = (movieToAdd: CardsData) => {
-    // Récupérez la liste des favoris actuels depuis le localStorage
+    // Récupére la liste des favoris actuels depuis le localStorage
     let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
 
-    // Vérifiez si le film est déjà dans les favoris
+    // Vérifie si le film est déjà dans les favoris
     const isAlreadyFavorite = favorites.some(
       (fav: CardsData) => fav.id === movieToAdd.id
     );
