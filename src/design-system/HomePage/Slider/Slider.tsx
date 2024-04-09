@@ -68,7 +68,7 @@ const Slider: FC<SliderProps> = ({ cardsData }) => {
               spaceBetween: 20,
             },
           }}
-          className="myyySwiper flex flex-row justify-center bg-blue-900 w-full"
+          className="myyySwiper flex flex-row justify-center bg-blue-900 w-full "
         >
           {cardsData?.slice(0, 10).map((card) => (
             <SwiperSlide key={card.id}>

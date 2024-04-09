@@ -85,37 +85,39 @@ const CardBig: FC<CardBigProps> = ({}) => {
           >
             <div
               id="technical-description"
-              className=" bg-blue-900 p-4 flex flex-col lg:flex-row leading-normal items-center lg:items-start "
+              className=" bg-blue-900 p-4 flex flex-col lg:flex-row leading-normal items-center lg:items-start lg:"
             >
               <img
-                className=" lg:w-64 lg:h-64 lg:mr-2 fill-current w-32 h-32 flex items-center lg:mb-8 object-cover"
+                className=" lg:w-64 lg:h-64 lg:mr-2 fill-current w-32 h-32 flex items-center lg:mb-8 object-cover "
                 src={movie.poster_path}
               ></img>
 
               <div className="lg:flex lg:flex-col lg:gap-2 lg:pl-8">
                 <div
                   id="title_and_date"
-                  className="flex flex-col items-center justify-center py-4 lg:py-8"
+                  className="flex flex-col items-center justify-center py-4 lg:py-0 lg:items-start"
                 >
-                  <h1 className="text-white font-bold text-3xl  px-6 pb-4">
+                  <h1 className="text-white font-bold text-3xl  px-6 pb-4 lg:px-0">
                     {movie.title}
                   </h1>
-                  <p className="text-white pl-2">{movie.release_date}</p>
+                  <p className="text-white pl-2 lg:pl-0">
+                    {movie.release_date}
+                  </p>
                 </div>
                 <div className="grid grid-cols-1 gap-4  ">
-                  <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl">
+                  <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl lg:justify-start">
                     Budget
                     <span className="text-base lg:text-xl  text-blue-200 pl-4">
                       {movie.budget} M$
                     </span>
                   </h3>
-                  <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl">
+                  <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl lg:justify-start">
                     Revenu
                     <span className="text-base lg:text-xl  text-blue-200 pl-4">
                       {movie.revenue} M$
                     </span>
                   </h3>
-                  <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl">
+                  <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl lg:justify-start">
                     Recettes
                     <span className="text-base lg:text-xl text-blue-200 pl-4">
                       {" "}
@@ -124,21 +126,19 @@ const CardBig: FC<CardBigProps> = ({}) => {
                   </h3>
                 </div>
               </div>
-              <div
-                id="ratingslg"
-                className="lg:flex flex-col hidden pt-12 pl-48"
-              >
+              <div id="ratingslg" className="lg:flex flex-col hidden  pl-48 ">
                 <div>
-                  <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl pb-2">
-                    Note de la communauté : {movie.rating} / 10
+                  <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl pb-2 ">
+                    Note de la communauté :{" "}
+                    <span className="text-white w-48">{movie.rating} / 10</span>
                   </h3>
                   <div>{/* <StarRating totalStars={10} /> */}</div>
                 </div>
-                <div>
-                  <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl py-2">
-                    Ma note
+                <div className="flex items-center pt-36">
+                  <h3 className="text-blue-200 flex justify-start  lg:text-2xl py-4">
+                    Ma note :
                   </h3>
-                  <div className="pb-8">
+                  <div className="flex pl-36">
                     <StarRating
                       totalStars={5}
                       rating={rating}
