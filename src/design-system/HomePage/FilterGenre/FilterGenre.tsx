@@ -1,4 +1,4 @@
-import { FC, SetStateAction } from "react";
+import { FC, SetStateAction, useEffect, useRef } from "react";
 import { useState } from "react";
 
 type FilterGenreProps = {
@@ -6,6 +6,15 @@ type FilterGenreProps = {
 };
 
 const FilterGenre: FC<FilterGenreProps> = ({ label }) => {
+  const filterRef = useRef<HTMLDivElement>(null);
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      filterRef.current &&
+      !filterRef.current.contains(event.target as Node)
+    ) {
+      setIsOpen(false);
+    }
+  };
   const [isOpen, setIsOpen] = useState(false);
   const handleIsOpen = () => setIsOpen(!isOpen);
   const [selectedLabel, setSelectedLabel] = useState(label);
@@ -13,8 +22,15 @@ const FilterGenre: FC<FilterGenreProps> = ({ label }) => {
     setSelectedLabel(year);
     setIsOpen(false);
   };
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
     <div
+      ref={filterRef}
       onClick={handleIsOpen}
       className="relative inline-block text-left px-3 py-3 "
     >

@@ -1,4 +1,4 @@
-import { FC, SetStateAction, useEffect } from "react";
+import { FC, SetStateAction, useEffect, useRef } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -20,6 +20,15 @@ type MovieDetails = {
 };
 
 const Filter: FC<FilterProps> = ({ label, movieDetails }) => {
+  const filterRef = useRef<HTMLDivElement>(null);
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      filterRef.current &&
+      !filterRef.current.contains(event.target as Node)
+    ) {
+      setIsOpen(false);
+    }
+  };
   const { id } = useParams<{ id: string }>();
   const [isOpen, setIsOpen] = useState(false);
   const [movies, setMovies] = useState(false);
@@ -60,8 +69,16 @@ const Filter: FC<FilterProps> = ({ label, movieDetails }) => {
 
   console.log(movieDetails);
 
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div
+      ref={filterRef}
       onClick={handleIsOpen}
       className="relative inline-block text-left px-3 py-3 "
     >
