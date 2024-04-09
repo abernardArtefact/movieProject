@@ -25,6 +25,37 @@ const HomePage = () => {
     loadData();
   }, []);
 
+  const addFavorite = (movieToAdd: CardsData) => {
+    // Récupérez la liste des favoris actuels depuis le localStorage
+    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+    // Vérifiez si le film est déjà dans les favoris
+    const isAlreadyFavorite = favorites.some(
+      (fav: CardsData) => fav.id === movieToAdd.id
+    );
+
+    if (!isAlreadyFavorite) {
+      // Ajoutez le film aux favoris
+      favorites.push(movieToAdd);
+
+      // Enregistrez la nouvelle liste des favoris dans le localStorage
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+  };
+
+  const removeFavorite = (movieIdToRemove: number) => {
+    // Récupérez la liste actuelle des favoris
+    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+    // Filtrez le film à supprimer
+    favorites = favorites.filter(
+      (fav: CardsData) => fav.id !== movieIdToRemove
+    );
+
+    // Enregistrez la nouvelle liste des favoris
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  };
+
   const containerVariant = {
     hidden: { opacity: 0, y: 30, rotate: [0, 1, 5, 1, 0] },
     visible: {
@@ -50,7 +81,15 @@ const HomePage = () => {
           <span className="flex justify-center text-2xl">du moment</span>
         </motion.div>
       </h1>
-      <div className="">{cardsData && <Slider cardsData={cardsData} />}</div>
+      <div className="">
+        {cardsData && (
+          <Slider
+            cardsData={cardsData}
+            addFavorite={addFavorite}
+            removeFavorite={removeFavorite}
+          />
+        )}
+      </div>
       <Button label={"Voir tous les films"}></Button>
       <div
         id="divider"

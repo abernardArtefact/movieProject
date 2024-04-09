@@ -1,9 +1,8 @@
-import { FC, useState } from "react";
+import { FC, MouseEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import Movie from "../../../pages/Movie";
 import { useParams } from "react-router";
 import { motion } from "framer-motion";
-import { log } from "echarts/types/src/util/log.js";
 
 type Movie = {
   id: number;
@@ -14,9 +13,15 @@ type Movie = {
 
 type CardSmallProps = {
   movie: Movie;
+  addFavorite: any;
+  removeFavorite: any;
 };
 
-const CardSmall: FC<CardSmallProps> = ({ movie }) => {
+const CardSmall: FC<CardSmallProps> = ({
+  movie,
+  addFavorite,
+  removeFavorite,
+}) => {
   const [selected, setSelected] = useState(() => {
     const selectedMovies = JSON.parse(
       localStorage.getItem("selectedMovies") || "[]"
@@ -24,26 +29,17 @@ const CardSmall: FC<CardSmallProps> = ({ movie }) => {
     return selectedMovies.includes(movie.id);
   });
 
-  const toggleSelect = (event: { stopPropagation: () => void }) => {
+  const toggleSelect = (
+    event: MouseEvent<HTMLSpanElement, globalThis.MouseEvent>
+  ) => {
     event.stopPropagation();
     setSelected((currentSelected: any) => {
       const updatedSelected = !currentSelected;
-      const selectedMovies = JSON.parse(
-        localStorage.getItem("selectedMovies") || "[]"
-      );
-
       if (updatedSelected) {
-        localStorage.setItem(
-          "selectedMovies",
-          JSON.stringify([...selectedMovies, movie.id])
-        );
+        addFavorite(movie);
       } else {
-        localStorage.setItem(
-          "selectedMovies",
-          JSON.stringify(selectedMovies.filter((id: number) => id !== movie.id))
-        );
+        removeFavorite(movie.id);
       }
-
       return updatedSelected;
     });
   };
@@ -98,7 +94,7 @@ const CardSmall: FC<CardSmallProps> = ({ movie }) => {
             <div className="px-6   ">
               {/* flex flex-row-reverse */}
               <span className="text-sm font-semibold text-red-800 mr-2  w-full">
-                +120 KS
+                {/* +120 KS */}
               </span>
             </div>
             <div

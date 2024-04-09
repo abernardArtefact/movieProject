@@ -22,6 +22,36 @@ const Search = () => {
 
     loadData();
   }, []);
+  const addFavorite = (movieToAdd: CardsData) => {
+    // Récupérez la liste des favoris actuels depuis le localStorage
+    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+    // Vérifiez si le film est déjà dans les favoris
+    const isAlreadyFavorite = favorites.some(
+      (fav: CardsData) => fav.id === movieToAdd.id
+    );
+
+    if (!isAlreadyFavorite) {
+      // Ajoutez le film aux favoris
+      favorites.push(movieToAdd);
+
+      // Enregistrez la nouvelle liste des favoris dans le localStorage
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
+  };
+
+  const removeFavorite = (movieIdToRemove: number) => {
+    // Récupérez la liste actuelle des favoris
+    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+    // Filtrez le film à supprimer
+    favorites = favorites.filter(
+      (fav: CardsData) => fav.id !== movieIdToRemove
+    );
+
+    // Enregistrez la nouvelle liste des favoris
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  };
 
   return (
     <div id="main-container" className="w-screen h-full bg-blue-900">
@@ -36,7 +66,11 @@ const Search = () => {
       <div className="lg:flex lg:justify-center lg:px-8 flex flex-wrap justify-center">
         {cardsData?.map((movie) => (
           <div key={movie.id} className="flex justify-center pt-8 lg:px-8">
-            <CardSmall movie={movie}></CardSmall>
+            <CardSmall
+              movie={movie}
+              addFavorite={addFavorite}
+              removeFavorite={removeFavorite}
+            ></CardSmall>
           </div>
         ))}
       </div>

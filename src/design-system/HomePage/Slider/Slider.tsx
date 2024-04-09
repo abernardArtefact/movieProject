@@ -1,19 +1,10 @@
 import { FC, Key } from "react";
-// import { Swiper } from "swiper";
-import "swiper/css";
-import "swiper/css/pagination";
-import CardSmall from "../../Common/CardSmall/CardSmall";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  A11y,
-  Keyboard,
-  Mousewheel,
-  Navigation,
-  Pagination,
-} from "swiper/modules";
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import CardSmall from "../../Common/CardSmall/CardSmall";
 
 type CardsData = {
   index: Key | null | undefined;
@@ -23,18 +14,18 @@ type CardsData = {
   poster_path: string;
   overview?: string;
 };
+
 type SliderProps = {
   cardsData: CardsData[];
+  addFavorite?: (movie: CardsData) => void;
+  removeFavorite?: (movieId: number) => void;
 };
 
-const Slider: FC<SliderProps> = ({ cardsData }) => {
-  const addFavorite = (movie: { id: any }) => {
-    let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-    if (!favorites.some((favorite: { id: any }) => favorite.id === movie.id)) {
-      favorites.push(movie);
-      localStorage.setItem("favorites", JSON.stringify(favorites));
-    }
-  };
+const Slider: FC<SliderProps> = ({
+  cardsData,
+  addFavorite,
+  removeFavorite,
+}) => {
   if (!cardsData) {
     return (
       <>
@@ -43,12 +34,13 @@ const Slider: FC<SliderProps> = ({ cardsData }) => {
     );
   }
   console.log(cardsData);
+
   return (
     <div>
       <>
         <Swiper
           navigation={true}
-          modules={[Navigation, Pagination, A11y, Mousewheel, Keyboard]}
+          modules={[Navigation, Pagination, Mousewheel, Keyboard]}
           mousewheel={true}
           keyboard={true}
           pagination={{
@@ -72,7 +64,11 @@ const Slider: FC<SliderProps> = ({ cardsData }) => {
         >
           {cardsData?.slice(0, 10).map((card) => (
             <SwiperSlide key={card.id}>
-              <CardSmall movie={card} />
+              <CardSmall
+                movie={card}
+                addFavorite={addFavorite}
+                removeFavorite={removeFavorite}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
