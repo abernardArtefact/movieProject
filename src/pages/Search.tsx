@@ -23,33 +23,26 @@ const Search = () => {
     loadData();
   }, []);
   const addFavorite = (movieToAdd: CardsData) => {
-    // Récupérez la liste des favoris actuels depuis le localStorage
     let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
 
-    // Vérifiez si le film est déjà dans les favoris
     const isAlreadyFavorite = favorites.some(
       (fav: CardsData) => fav.id === movieToAdd.id
     );
 
     if (!isAlreadyFavorite) {
-      // Ajoutez le film aux favoris
       favorites.push(movieToAdd);
 
-      // Enregistrez la nouvelle liste des favoris dans le localStorage
       localStorage.setItem("favorites", JSON.stringify(favorites));
     }
   };
 
   const removeFavorite = (movieIdToRemove: number) => {
-    // Récupérez la liste actuelle des favoris
     let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
 
-    // Filtrez le film à supprimer
     favorites = favorites.filter(
       (fav: CardsData) => fav.id !== movieIdToRemove
     );
 
-    // Enregistrez la nouvelle liste des favoris
     localStorage.setItem("favorites", JSON.stringify(favorites));
   };
 
@@ -79,37 +72,3 @@ const Search = () => {
 };
 
 export default Search;
-
-// const [cardsData, setCardsData] = useState<CardsData[] | null>(null);
-// const apiKey = import.meta.env.VITE_API_KEY_TMDB;
-
-// useEffect(() => {
-//   const data = {
-//     method: "GET",
-//     headers: {
-//       accept: "application/json",
-//       Authorization: `Bearer ${import.meta.env.VITE_API_KEY_TMDB}`,
-//     },
-//   };
-//   // console.log(data.headers.Authorization);
-
-//   fetch(
-//     `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${apiKey}`,
-
-//     data
-//   )
-//     .then((response) => response.json())
-//     .then((response) => {
-//       const loadedMovies: CardsData[] = response.results.map(
-//         (cardsData: CardsData) => ({
-//           id: cardsData.id,
-//           title: cardsData.title,
-//           release_date: cardsData.release_date,
-//           poster_path: `https://image.tmdb.org/t/p/w500${cardsData.poster_path}`,
-//         })
-//       );
-//       setCardsData(loadedMovies);
-//       console.log(cardsData);
-//     })
-//     .catch((err) => console.error(err));
-// }, []);

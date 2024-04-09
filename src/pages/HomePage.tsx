@@ -35,24 +35,19 @@ const HomePage = () => {
     );
 
     if (!isAlreadyFavorite) {
-      // Ajoutez le film aux favoris
       favorites.push(movieToAdd);
 
-      // Enregistrez la nouvelle liste des favoris dans le localStorage
       localStorage.setItem("favorites", JSON.stringify(favorites));
     }
   };
 
   const removeFavorite = (movieIdToRemove: number) => {
-    // Récupérez la liste actuelle des favoris
     let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
 
-    // Filtrez le film à supprimer
     favorites = favorites.filter(
       (fav: CardsData) => fav.id !== movieIdToRemove
     );
 
-    // Enregistrez la nouvelle liste des favoris
     localStorage.setItem("favorites", JSON.stringify(favorites));
   };
 
