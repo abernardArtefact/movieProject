@@ -10,7 +10,6 @@ import {
   ResponsiveContainer,
   ComposedChart,
 } from "recharts";
-// import StockContext from "../../../context/StockContext";
 
 type GraphProps = {
   label: string;

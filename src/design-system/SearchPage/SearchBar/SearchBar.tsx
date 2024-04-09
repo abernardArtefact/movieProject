@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { useState, useEffect } from "react";
-import { useDebounceCallback } from "usehooks-ts";
+import { useState } from "react";
+import { debounce } from "lodash";
 
 type Movie = { id: number; title: string };
 
@@ -16,38 +16,36 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
   const [isLoading, setIsLoading] = useState(false);
   const apiKey = import.meta.env.VITE_API_KEY_TMDB;
 
-  const debouncedSearch = useDebounceCallback(() => {
-    if (!input) {
+  const debouncedSearch = debounce((searchValue: string) => {
+    if (!searchValue) {
       setIsLoading(false);
+      setMovies([]);
       return;
     }
     setIsLoading(true);
-    fetch(
-      // `https://api.themoviedb.org/3/search/movie?query=${input}&language=en-US&page=1&api_key=${apiKey}`,
-      `https://api.themoviedb.org/3/movie/popular?query=${encodeURIComponent(input)}language=en-US&page=1`,
-
-      {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          Authorization: `Bearer ${apiKey}`,
-        },
-      }
-    )
+    const url = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(searchValue)}&language=en-US&page=1&api_key=${apiKey}`;
+    fetch(url, {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         setMovies(data.results as Movie[]);
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error("Erreur baby", error);
+        console.error("Erreur lors de la recherche de films", error);
         setIsLoading(false);
       });
   }, 500);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
-    debouncedSearch();
+    debouncedSearch(e.target.value);
   };
 
   // maper movies.map(movie) => {key={movie.id} {movie.title}}
@@ -62,12 +60,14 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
         onChange={handleChange}
       />
       {isLoading ? (
-        <div>Chargeme</div>
+        <div>Chargement is comming</div>
       ) : (
         <ul>
-          {movies.map((movie) => (
-            <li key={movie.id}>{movie.title}</li>
-          ))}
+          {movies.length > 0 ? (
+            movies.map((movie) => <li key={movie.id}>{movie.title}</li>)
+          ) : (
+            <div></div>
+          )}
         </ul>
       )}
       <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
@@ -91,3 +91,9 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
 };
 
 export default SearchBar;
+function useDebounceCallBack(
+  arg0: (searchValue: string) => void,
+  arg1: number
+) {
+  throw new Error("Function not implemented.");
+}
