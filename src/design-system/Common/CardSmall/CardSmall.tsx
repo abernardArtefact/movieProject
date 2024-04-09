@@ -85,8 +85,11 @@ const CardSmall: FC<CardSmallProps> = ({ movie }) => {
           </motion.div>
         </div>
         <div className="flex justify-center items-center pt-2 ">
-          <div className="">
-            <div id="title" className="font-bold text-xl mb-2">
+          <div className="flex flex-col justify-center items-center ">
+            <div
+              id="title"
+              className="font-bold text-xl mb-2 flex justify-center px-4"
+            >
               {movie.title}
             </div>
             <p id="year" className="text-gray-700 text-base ">

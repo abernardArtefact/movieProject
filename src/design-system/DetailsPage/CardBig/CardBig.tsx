@@ -130,7 +130,9 @@ const CardBig: FC<CardBigProps> = ({}) => {
                 <div>
                   <h3 className="text-blue-200 flex justify-center items-center lg:text-2xl pb-2 ">
                     Note de la communauté :{" "}
-                    <span className="text-white w-48">{movie.rating} / 10</span>
+                    <span className="text-white w-48 pl-2">
+                      {movie.rating} / 10
+                    </span>
                   </h3>
                   <div>{/* <StarRating totalStars={10} /> */}</div>
                 </div>
