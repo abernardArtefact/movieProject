@@ -68,7 +68,10 @@ const CardBig: FC<CardBigProps> = ({}) => {
       }
     };
 
-    if (id) fetchMovieDetails();
+    if (id) {
+      fetchMovieDetails();
+    }
+    //  logo assets dans public route qui sert à rien Movie
     const storedRating = localStorage.getItem(`movieRating-${id}`);
     if (storedRating) {
       setRating(JSON.parse(storedRating));

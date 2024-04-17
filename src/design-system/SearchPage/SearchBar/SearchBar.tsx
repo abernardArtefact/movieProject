@@ -11,7 +11,7 @@ type SearchBarProps = {
   types: Array<{ id: number; name: string; url: string }>;
 };
 
-const SearchBar: FC<SearchBarProps> = ({}) => {
+const SearchBar: FC<SearchBarProps> = () => {
   const [input, setInput] = useState("");
   const [movies, setMovies] = useState<Movie[]>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +51,10 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
 
   // maper movies.map(movie) => {key={movie.id} {movie.title}}
   return (
-    <div className=" text-blue-200  pt-2 relative mx-auto text-cyan-200">
+    <div
+      id="name-movies-list "
+      className=" text-blue-200 pt-2 mx-auto text-cyan-200 absolute right-4 top-[20px] z-10 bg-blue-900 px-4 py-4 border-cyan-200 "
+    >
       <input
         className="border-2 border-blue-200 bg-blue-900 h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
         type="search"
@@ -63,7 +66,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
       {isLoading ? (
         <div>Chargement is comming</div>
       ) : (
-        <ul>
+        <ul className="pt-2">
           {movies.length > 0 ? (
             movies.map((movie) => (
               <li key={movie.id}>
@@ -75,7 +78,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
           )}
         </ul>
       )}
-      <button type="submit" className="absolute right-0 top-0 mt-5 mr-4">
+      <button type="submit" className="absolute right-0 top-0 mt-5 mr-8">
         <svg
           className="text-blue-200 h-4 w-4 fill-current"
           xmlns="http://www.w3.org/2000/svg"

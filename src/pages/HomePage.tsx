@@ -62,7 +62,7 @@ const HomePage = () => {
   };
 
   return (
-    <div id="main-container" className="w-screen h-full bg-blue-900 ">
+    <div id="main-container" className="w-screen h-full bg-blue-900">
       <h1
         id="title"
         className="text-white text-xl mb-12 flex flex-col justify-center items-center lg:w-full w-screen lg:mx-4  bg-blue-900 font-bold "
