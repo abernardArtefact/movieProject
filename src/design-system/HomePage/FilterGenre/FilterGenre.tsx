@@ -76,7 +76,7 @@ const FilterGenre: FC<FilterGenreProps> = ({ label }) => {
                   e.stopPropagation();
                   handleSelection(year);
                 }}
-                className={`relative h-[40px] mx-6 grid  font-light place-content-center `}
+                className={`relative h-[40px] mx-6 grid  font-light place-content-center cursor-pointer`}
               >
                 {year}
               </li>

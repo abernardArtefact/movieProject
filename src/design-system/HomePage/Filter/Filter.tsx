@@ -117,7 +117,7 @@ const Filter: FC<FilterProps> = ({ label, movieDetails }) => {
                   e.stopPropagation();
                   handleSelection(year);
                 }}
-                className={`relative w-[100px] h-[40px] mx-6 grid grid-cols-2 font-light place-content-center `}
+                className={`relative w-[100px] h-[40px] mx-6 grid grid-cols-2 font-light place-content-center cursor-pointer`}
               >
                 {year}
               </li>
