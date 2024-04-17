@@ -16,13 +16,17 @@ type CardsData = {
 
 const HomePage = () => {
   const [cardsData, setCardsData] = useState<CardsData[] | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     const loadData = async () => {
+      setIsLoading(false);
       const movies = await fetchData();
       setCardsData(movies);
     };
 
     loadData();
+    setIsLoading(true);
   }, []);
 
   const addFavorite = (movieToAdd: CardsData) => {
@@ -65,7 +69,7 @@ const HomePage = () => {
     <div id="main-container" className="w-screen h-full bg-blue-900">
       <h1
         id="title"
-        className="text-white text-xl mb-12 flex flex-col justify-center items-center lg:w-full w-screen lg:mx-4  bg-blue-900 font-bold "
+        className="text-white text-xl lg:mb-12 flex flex-col justify-center items-center lg:w-full w-screen lg:mx-4  bg-blue-900 font-bold"
       >
         Les 10 films les plus populaires
         <motion.div
@@ -73,7 +77,7 @@ const HomePage = () => {
           initial="hidden"
           animate="visible"
         >
-          <span className="flex justify-center text-2xl">du moment</span>
+          <span className="flex justify-center text-2xl ">du moment</span>
         </motion.div>
       </h1>
       <div className="">

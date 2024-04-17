@@ -51,7 +51,9 @@ const FavorisPage = () => {
   return (
     <div id="main-container" className="w-screen h-screen bg-blue-900 pt-20 ">
       <div>
-        <h2 className="text-sm text-white pl-4 pb-8">Mes Films Favoris : </h2>
+        <h2 className="text-lg text-white pl-12 pb-8 font-bold">
+          Mes Films Favoris{" "}
+        </h2>
         <ul className="flex flex-col items-center  bg-blue-900 lg:grid lg:grid-cols-4 lg:gap-4 lg:pl-12 ">
           {favorites.map((movie) => (
             <li className="bg-blue-900 h-full  " key={movie.id}>

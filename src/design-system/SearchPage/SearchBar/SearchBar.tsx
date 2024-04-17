@@ -53,7 +53,7 @@ const SearchBar: FC<SearchBarProps> = () => {
   return (
     <div
       id="name-movies-list "
-      className=" text-blue-200 pt-2 mx-auto text-cyan-200 absolute right-4 top-[20px] z-10 bg-blue-900 px-4 py-4 border-cyan-200 "
+      className=" text-blue-200 pt-2 mx-auto text-cyan-200 absolute top-[-40px] right-12 lg:right-4 lg:top-[20px] z-10 bg-blue-900 px-4 border-cyan-200 "
     >
       <input
         className="border-2 border-blue-200 bg-blue-900 h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
@@ -64,9 +64,9 @@ const SearchBar: FC<SearchBarProps> = () => {
         onChange={handleChange}
       />
       {isLoading ? (
-        <div>Chargement is comming</div>
+        <span className="loader"></span>
       ) : (
-        <ul className="py-2">
+        <ul className="lg:py-4">
           {movies.length > 0 ? (
             movies.map((movie) => (
               <li key={movie.id}>
