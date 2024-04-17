@@ -20,8 +20,8 @@ const HomePage = () => {
 
   useEffect(() => {
     const loadData = async () => {
-      setIsLoading(false);
       const movies = await fetchData();
+      setIsLoading(false);
       setCardsData(movies);
     };
 
@@ -66,7 +66,7 @@ const HomePage = () => {
   };
 
   return (
-    <div id="main-container" className="w-screen h-full bg-blue-900">
+    <div id="main-container" className="w-screen h-full bg-blue-900 ">
       <h1
         id="title"
         className="text-white text-xl lg:mb-12 flex flex-col justify-center items-center lg:w-full w-screen lg:mx-4  bg-blue-900 font-bold"
@@ -81,12 +81,16 @@ const HomePage = () => {
         </motion.div>
       </h1>
       <div className="">
-        {cardsData && (
-          <Slider
-            cardsData={cardsData}
-            addFavorite={addFavorite}
-            removeFavorite={removeFavorite}
-          />
+        {isLoading ? (
+          <span className="loader"></span>
+        ) : (
+          cardsData && (
+            <Slider
+              cardsData={cardsData}
+              addFavorite={addFavorite}
+              removeFavorite={removeFavorite}
+            />
+          )
         )}
       </div>
       <Button label={"Voir tous les films"}></Button>
