@@ -66,7 +66,7 @@ const SearchBar: FC<SearchBarProps> = () => {
       {isLoading ? (
         <div>Chargement is comming</div>
       ) : (
-        <ul className="pt-2">
+        <ul className="py-2">
           {movies.length > 0 ? (
             movies.map((movie) => (
               <li key={movie.id}>

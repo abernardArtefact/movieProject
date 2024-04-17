@@ -39,7 +39,7 @@ const Header: FC<HeaderProps> = () => {
       <div id="buttons" className="flex items-center pb-2 lg:pb-0">
         <ButtonHeader label={"Accueil"} to={"/"}></ButtonHeader>
         <ButtonHeader label={"Recherche"} to={"/search"}></ButtonHeader>
-        <Favoris label={"🩷"}></Favoris>
+        <Favoris label={"🩷"} to={""}></Favoris>
       </div>
     </div>
   );
