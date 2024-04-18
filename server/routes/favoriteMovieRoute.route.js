@@ -7,13 +7,9 @@ const {getFavorites, getFavoriteMovie, createFavoriteMovie, updateFavoriteMovie,
 
 router.get('/', getFavorites);
 router.get("/:id", getFavoriteMovie);
-
 router.post("/", createFavoriteMovie);
-
 // update a FavoriteMovie
 router.put("/:id", updateFavoriteMovie);
-
-// delete a FavoriteMovie
 router.delete("/:id", deleteFavoriteMovie);
 
 module.exports = router;

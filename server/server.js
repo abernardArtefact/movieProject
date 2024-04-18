@@ -28,25 +28,3 @@ mongoose.connect('mongodb+srv://anneflower:hlBOy1tH7iDW498N@backenddb.vo6dccc.mo
 .catch(() => {
     console.log("Connection failed :/");
 });
-
-
-// app.post('/api/favorites', async (req, res) => {
-// try {
-//     const { title, director, releaseYear, userId } = req.body;
-//     const newFavorite = new FavoriteMovie({ title, director, releaseYear, userId });
-//     await newFavorite.save();
-//     res.status(201).send(newFavorite);
-// } catch (error) {
-//     res.status(500).send("An error occurred while saving the movie :/");
-// }
-// });
-
-// app.get('/api/favorites', async (req, res) => {
-//     try {
-//     const {id} = req.params;
-//     const favorites = await FavoriteMovie.findById(id);
-//     res.status(200).send(favorites);
-//     } catch (error) {
-//     res.status(500).send("An error occurred while fetching the movies :/ ");
-//     }
-// });
