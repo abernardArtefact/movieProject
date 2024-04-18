@@ -24,5 +24,12 @@
 //   }
 // }
 // run().catch(console.dir);
-const yoyoyo = 1;
-console.log(yoyoyo);
+
+// const yoyoyo = 1;
+// console.log(yoyoyo);
+
+const express = require('express')
+const app = express()
+app.listen(3000, () => {
+    console.log("ca marche sur 3000");
+})

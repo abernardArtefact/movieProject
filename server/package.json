@@ -4,7 +4,8 @@
   "description": "A simple API for favorite movies",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "serve": "node server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
