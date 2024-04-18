@@ -33,3 +33,6 @@ const app = express()
 app.listen(3000, () => {
     console.log("ca marche sur 3000");
 })
+app.get('/', (req, res) => {
+    res.send("envoyé depuis node api gogo")
+})
