@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+body {
+  position: relative;
+  height: 100%;
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 600px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.sb-show-main.sb-main-padded {
+  padding: 0px;
+}
+
+.swiper-button-next:after {
+  bottom: 4em;
+  color:#eee white;
+}
+
+.swiper-slide swiper-slide-active {
+width: 230px;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 20px;
+  padding-bottom: 14px;
+  padding-top: 14px;
+  z-index: 10 !important;
+}
+
+.swiper-pagination-bullet {
+  background: white;
+}
+
+.recharts-wrapper {
+  width: 80%;
+}
+
+/* #light {
+  background-color: aquamarine;
+}
+
+#dark {
+  background-color: red !important;
+
+  z-index: 20 !important;
+} */
+
+/* loader-spinner */
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #FFF;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 40;
+  top: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border-left: 4px solid hwb(180 0% 0%);
+  border-bottom: 4px solid transparent;
+  animation: rotation 0.5s linear infinite reverse;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
